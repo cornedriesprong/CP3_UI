@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Color {
+public final class Color {
     
     static let allColors = [red, orange, darkOrange, yellowish, mint, grass, green, turqoise, blue, purple, lightPurple, pink]
     

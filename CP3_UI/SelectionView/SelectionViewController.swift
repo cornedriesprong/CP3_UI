@@ -142,11 +142,11 @@ public class SelectionViewController: UIViewController {
             itemCell?.configure(
                 index: indexPath.row,
                 title: "\(indexPath.row + 1)",
-                color: self.color(forSelectedIndex: indexPath.row))
+                color: SelectionViewController.color(forSelectedIndex: indexPath.row))
         }
     }
     
-    private func color(forSelectedIndex index: Int) -> UIColor {
+    public static func color(forSelectedIndex index: Int) -> UIColor {
         return Color.allColors[(index * 5) % Color.allColors.count]
     }
     
@@ -181,7 +181,7 @@ extension SelectionViewController: UICollectionViewDataSource {
             cell.configure(
                 index: indexPath.row,
                 title: "\(indexPath.row + 1)",
-                color: self.color(forSelectedIndex: indexPath.row))
+                color: SelectionViewController.color(forSelectedIndex: indexPath.row))
             cell.delegate = self
             
             return cell
