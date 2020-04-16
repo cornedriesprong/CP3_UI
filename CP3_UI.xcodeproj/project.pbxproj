@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */; };
+		97BD629E2448BD030036FBD9 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* ItemCell.swift */; };
+		97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629F2448BF1B0036FBD9 /* Color.swift */; };
+		97BD62A22448BF440036FBD9 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A12448BF440036FBD9 /* AddItemCell.swift */; };
+		97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A32448BFDC0036FBD9 /* Font.swift */; };
+		97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
 		97BD62922448BC320036FBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
+		97BD629D2448BD030036FBD9 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		97BD629F2448BF1B0036FBD9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		97BD62A12448BF440036FBD9 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
+		97BD62A32448BFDC0036FBD9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+dark.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +61,48 @@
 			isa = PBXGroup;
 			children = (
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
+				97BD62A72448C1720036FBD9 /* SelectionView */,
+				97BD62A92448C1900036FBD9 /* Resources */,
+				97BD62AA2448C1960036FBD9 /* Extensions */,
 				97BD62922448BC320036FBD9 /* Info.plist */,
+				97506C5C2448E40800D88309 /* Assets.xcassets */,
 			);
 			path = CP3_UI;
+			sourceTree = "<group>";
+		};
+		97BD62A72448C1720036FBD9 /* SelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				97BD62A82448C1870036FBD9 /* Cells */,
+				97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */,
+			);
+			path = SelectionView;
+			sourceTree = "<group>";
+		};
+		97BD62A82448C1870036FBD9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				97BD629D2448BD030036FBD9 /* ItemCell.swift */,
+				97BD62A12448BF440036FBD9 /* AddItemCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		97BD62A92448C1900036FBD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97BD629F2448BF1B0036FBD9 /* Color.swift */,
+				97BD62A32448BFDC0036FBD9 /* Font.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		97BD62AA2448C1960036FBD9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +148,7 @@
 				TargetAttributes = {
 					97BD628D2448BC320036FBD9 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -121,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97506C5D2448E40800D88309 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BD62A22448BF440036FBD9 /* AddItemCell.swift in Sources */,
+				97BD629E2448BD030036FBD9 /* ItemCell.swift in Sources */,
+				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
+				97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */,
+				97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */,
+				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -245,7 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -260,6 +321,7 @@
 		97BD62972448BC320036FBD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5GWBH83EBX;
@@ -268,6 +330,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CP3_UI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -276,6 +339,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cp3.CP3-UI";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +349,7 @@
 		97BD62982448BC320036FBD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5GWBH83EBX;
@@ -292,6 +358,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CP3_UI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,6 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.cp3.CP3-UI";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
