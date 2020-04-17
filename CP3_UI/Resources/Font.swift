@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum Font {
+public enum Font {
     
-    static func font(ofSize size: CGFloat = 15) -> UIFont {
+    public static func font(ofSize size: CGFloat = 15) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
     
-    static func fontBold(ofSize size: CGFloat = 15) -> UIFont {
+    public static func fontBold(ofSize size: CGFloat = 15) -> UIFont {
         return UIFont.systemFont(ofSize: size, weight: .bold)
     }
 }
