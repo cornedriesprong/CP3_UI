@@ -17,7 +17,8 @@ public final class CPValueControl: UIControl {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
 
-        let image = UIImage(named: "back")
+        let bundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "back", in: bundle, compatibleWith: nil)
         button.setImage(image, for: .normal)
 
         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
@@ -47,7 +48,8 @@ public final class CPValueControl: UIControl {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
 
-        let image = UIImage(named: "back")
+        let bundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "back", in: bundle, compatibleWith: nil)
         button.setImage(image, for: .normal)
         button.transform = CGAffineTransform.identity.rotated(by: .pi)
 

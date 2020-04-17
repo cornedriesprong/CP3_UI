@@ -16,8 +16,6 @@ public final class CPSwitchTableViewCell: CPTableViewCell {
         
         let `switch` = UISwitch()
         `switch`.translatesAutoresizingMaskIntoConstraints = false
-        `switch`.tintColor = Color.red
-        `switch`.onTintColor = Color.red
         
         `switch`.addTarget(
             self,
@@ -28,6 +26,13 @@ public final class CPSwitchTableViewCell: CPTableViewCell {
     }()
     
     public var actionCallBack: ((_ isOn: Bool) -> Void)?
+    
+    public var color: UIColor = Color.red {
+        didSet {
+            `switch`.tintColor = color
+            `switch`.onTintColor = color
+        }
+    }
     
     // MARK: - Initialization
     

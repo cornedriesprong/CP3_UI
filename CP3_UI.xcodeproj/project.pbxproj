@@ -10,10 +10,10 @@
 		970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970BDA9A2449C0CD009EF31B /* CPValueControl.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */; };
-		97BD629E2448BD030036FBD9 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* ItemCell.swift */; };
+		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
+		97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* CPItemCell.swift */; };
 		97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629F2448BF1B0036FBD9 /* Color.swift */; };
-		97BD62A22448BF440036FBD9 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A12448BF440036FBD9 /* AddItemCell.swift */; };
+		97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A12448BF440036FBD9 /* CPAddItemCell.swift */; };
 		97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A32448BFDC0036FBD9 /* Font.swift */; };
 		97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */; };
 		97F908412449997100FC2740 /* CPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F908402449997100FC2740 /* CPTableViewController.swift */; };
@@ -29,10 +29,10 @@
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
 		97BD62922448BC320036FBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
-		97BD629D2448BD030036FBD9 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSelectionViewController.swift; sourceTree = "<group>"; };
+		97BD629D2448BD030036FBD9 /* CPItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPItemCell.swift; sourceTree = "<group>"; };
 		97BD629F2448BF1B0036FBD9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		97BD62A12448BF440036FBD9 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
+		97BD62A12448BF440036FBD9 /* CPAddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPAddItemCell.swift; sourceTree = "<group>"; };
 		97BD62A32448BFDC0036FBD9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+dark.swift"; sourceTree = "<group>"; };
 		97F908402449997100FC2740 /* CPTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTableViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				97BD62A82448C1870036FBD9 /* Cells */,
-				97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */,
+				97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */,
 			);
 			path = SelectionView;
 			sourceTree = "<group>";
@@ -104,8 +104,8 @@
 		97BD62A82448C1870036FBD9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				97BD629D2448BD030036FBD9 /* ItemCell.swift */,
-				97BD62A12448BF440036FBD9 /* AddItemCell.swift */,
+				97BD629D2448BD030036FBD9 /* CPItemCell.swift */,
+				97BD62A12448BF440036FBD9 /* CPAddItemCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -229,13 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				97F908412449997100FC2740 /* CPTableViewController.swift in Sources */,
-				97BD62A22448BF440036FBD9 /* AddItemCell.swift in Sources */,
-				97BD629E2448BD030036FBD9 /* ItemCell.swift in Sources */,
+				97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */,
+				97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */,
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
 				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
 				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
-				97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */,
+				97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */,
 				97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */,
 				97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */,
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
@@ -369,6 +369,7 @@
 		97BD62972448BC320036FBD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -397,6 +398,7 @@
 		97BD62982448BC320036FBD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

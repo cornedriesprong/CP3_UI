@@ -15,7 +15,7 @@ public protocol SelectionViewControllerDelegate: class {
     func didDuplicateItem(withIndex: Int)
 }
 
-public class SelectionViewController: UIViewController {
+public class CPSelectionViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -33,17 +33,18 @@ public class SelectionViewController: UIViewController {
         collectionView.alwaysBounceHorizontal = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = canAddItems
         
         collectionView.dataSource = self
         collectionView.delegate = self
         
         collectionView.register(
-            ItemCell.self,
-            forCellWithReuseIdentifier: ItemCell.reuseIdentifier)
+            CPItemCell.self,
+            forCellWithReuseIdentifier: CPItemCell.reuseIdentifier)
         
         collectionView.register(
-            AddItemCell.self,
-            forCellWithReuseIdentifier: AddItemCell.reuseIdentifier)
+            CPAddItemCell.self,
+            forCellWithReuseIdentifier: CPAddItemCell.reuseIdentifier)
         
         return collectionView
     }()
@@ -58,6 +59,7 @@ public class SelectionViewController: UIViewController {
     }()
     
     private var itemCount: Int
+    private let canAddItems: Bool
     
     private var selectedItemIndex = 0 {
         didSet {
@@ -75,8 +77,9 @@ public class SelectionViewController: UIViewController {
     
     // MARK: - Initialization
     
-    public init(itemCount: Int) {
+    public init(itemCount: Int, canAddItems: Bool = true) {
         self.itemCount = itemCount
+        self.canAddItems = canAddItems
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -91,11 +94,12 @@ public class SelectionViewController: UIViewController {
         super.viewDidLoad()
         
         view.clipsToBounds = true
+        view.backgroundColor = Color.darkGray
 
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 43).isActive = true
         
         view.insertSubview(blurView, at: 0)
@@ -137,12 +141,12 @@ public class SelectionViewController: UIViewController {
     private func updateCells() {
         // update cell labels and colors
         for indexPath in self.collectionView.indexPathsForVisibleItems {
-            let itemCell = self.collectionView.cellForItem(at: indexPath) as? ItemCell
+            let itemCell = self.collectionView.cellForItem(at: indexPath) as? CPItemCell
             itemCell?.label.text = "\(indexPath.item + 1)"
             itemCell?.configure(
                 index: indexPath.row,
                 title: "\(indexPath.row + 1)",
-                color: SelectionViewController.color(forSelectedIndex: indexPath.row))
+                color: CPSelectionViewController.color(forSelectedIndex: indexPath.row))
         }
     }
     
@@ -157,10 +161,10 @@ public class SelectionViewController: UIViewController {
     @objc private func duplicateButtonTapped(_ sender: UIMenuController) { }
 }
 
-extension SelectionViewController: UICollectionViewDataSource {
+extension CPSelectionViewController: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount + 1
+        return canAddItems ? itemCount + 1 : itemCount
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -168,20 +172,20 @@ extension SelectionViewController: UICollectionViewDataSource {
         if indexPath.row == itemCount {
             // last cell, show add item cell
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AddItemCell.reuseIdentifier,
-                for: indexPath) as! AddItemCell
+                withReuseIdentifier: CPAddItemCell.reuseIdentifier,
+                for: indexPath) as! CPAddItemCell
             
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ItemCell.reuseIdentifier,
-                for: indexPath) as! ItemCell
+                withReuseIdentifier: CPItemCell.reuseIdentifier,
+                for: indexPath) as! CPItemCell
             
             cell.configure(
                 index: indexPath.row,
                 title: "\(indexPath.row + 1)",
-                color: SelectionViewController.color(forSelectedIndex: indexPath.row))
+                color: CPSelectionViewController.color(forSelectedIndex: indexPath.row))
             cell.delegate = self
             
             return cell
@@ -189,7 +193,7 @@ extension SelectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension SelectionViewController: UICollectionViewDelegate {
+extension CPSelectionViewController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -280,26 +284,35 @@ extension SelectionViewController: UICollectionViewDelegate {
     }
 }
 
-extension SelectionViewController: UICollectionViewDelegateFlowLayout {
+extension CPSelectionViewController: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
         
-        return CGSize(
-            width: SelectionViewController.cellWidth,
-            height: collectionView.bounds.height)
+        if canAddItems {
+            return CGSize(
+                width: CPSelectionViewController.cellWidth,
+                height: collectionView.bounds.height)
+        } else {
+            return CGSize(
+                width: collectionView.bounds.width / CGFloat(itemCount),
+                height: collectionView.bounds.height)
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt
         section: Int) -> CGFloat {
-        
+        return 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
 
-extension SelectionViewController: ItemCellDelegate {
+extension CPSelectionViewController: ItemCellDelegate {
     
     func deleteItem(withIndex index: Int) {
         

@@ -13,7 +13,7 @@ public protocol CPTableViewItem: CustomStringConvertible {
     var accessoryType: UITableViewCell.AccessoryType { get }
     var cellHeight: CGFloat { get }
     
-    func cell() -> CPTableViewCell
+    func cell(with color: UIColor) -> CPTableViewCell
     func didSelect()
 }
 
@@ -30,6 +30,12 @@ public final class CPTableViewDataSourceDelegate: NSObject {
     
     private let tableView: UITableView
     private var items = [(String, [CPTableViewItem])]()
+    
+    public var color: UIColor = Color.red {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Initialization
     
@@ -52,9 +58,7 @@ public final class CPTableViewDataSourceDelegate: NSObject {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.backgroundColor = .clear
-        tableView.showsVerticalScrollIndicator = false
         
         tableView.register(
             CPTableViewCell.self,
@@ -79,17 +83,7 @@ extension CPTableViewDataSourceDelegate: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let item = Array(items)[indexPath.section].1[indexPath.row]
-        return item.cell()
-    }
-    
-    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        
-        // display version information underneath last section
-        if section == items.count - 1 {
-            return "VERSION \(Bundle.main.infoDictionary!["CFBundleShortVersionString"]!), BUILD \(Bundle.main.infoDictionary!["CFBundleVersion"]!)"
-        } else {
-            return nil
-        }
+        return item.cell(with: color)
     }
 }
 
@@ -111,7 +105,7 @@ extension CPTableViewDataSourceDelegate: UITableViewDelegate {
         
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = Font.fontBold(ofSize: 14)
-        header.textLabel?.textColor = Color.red
+        header.textLabel?.textColor = color
     }
     
     public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {

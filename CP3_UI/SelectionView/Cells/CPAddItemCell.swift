@@ -8,15 +8,16 @@
 
 import UIKit
 
-final class AddItemCell: UICollectionViewCell {
+final class CPAddItemCell: UICollectionViewCell {
 
     // MARK: - Properties
     
-    static let reuseIdentifier = String(describing: AddItemCell.self)
+    static let reuseIdentifier = String(describing: CPAddItemCell.self)
     
     private lazy var imageView: UIImageView = {
         
-        let image = UIImage(named: "plus")
+        let bundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "plus", in: bundle, compatibleWith: nil)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

@@ -13,7 +13,7 @@ protocol ItemCellDelegate: class {
     func duplicateItem(withIndex index: Int)
 }
 
-final class ItemCell: UICollectionViewCell {
+final class CPItemCell: UICollectionViewCell {
     
     // MARK: - Properties
     
