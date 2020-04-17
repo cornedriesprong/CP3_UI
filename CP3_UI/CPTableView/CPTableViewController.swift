@@ -17,7 +17,7 @@ public protocol CPTableViewItem: CustomStringConvertible {
     func didSelect()
 }
 
-public final class CPTableViewController: UIViewController {
+public final class CPTableViewDataSourceDelegate: NSObject {
     
     private lazy var blurEffect = UIBlurEffect(style: .dark)
     private lazy var blurView: UIVisualEffectView = {
@@ -28,70 +28,41 @@ public final class CPTableViewController: UIViewController {
         return view
     }()
     
-    private (set) lazy var tableView: UITableView = {
+    private let tableView: UITableView
+    private var items = [(String, [CPTableViewItem])]()
+    
+    // MARK: - Initialization
+    
+    public init(tableView: UITableView, items: [(String, [CPTableViewItem])]) {
+        self.tableView = tableView
+        self.items = items
         
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        super.init()
         
-        tableView.backgroundColor = .clear
-        tableView.showsVerticalScrollIndicator = false
+        configureTableView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Configure
+    
+    private func configureTableView() {
         
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        
         tableView.register(
             CPTableViewCell.self,
             forCellReuseIdentifier: CPTableViewCell.reuseIdentifier)
-        
-        return tableView
-    }()
-    
-    private var items = [(String, [CPTableViewItem])]()
-//        #if AUv3
-//        return [
-//            ("tempo and key", [.swing, .key, .scale]),
-//            ("pattern", [.clear, .copy, .paste]),
-//            ("MIDI", [.inputMode, .midiOutputChannel]),
-//            ("settings", [.settings]),
-//            ("help", [.manual, .about]),
-//            ("contact", [.contact, .www])
-//        ]
-//        #else
-//        return [
-//            ("file", [.name, .save, .clear, .patterns]),
-//            ("settings", [.link, .settings]),
-//            ("help", [.manual, .about]),
-//            ("contact", [.contact, .www, .rate])
-//        ]
-//        #endif
-//    }
-    
-    // MARK: - Life cycle
-    
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(blurView)
-        blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        blurView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        blurView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -1).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
     }
 }
 
-extension CPTableViewController: UITableViewDataSource {
+extension CPTableViewDataSourceDelegate: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
@@ -122,7 +93,7 @@ extension CPTableViewController: UITableViewDataSource {
     }
 }
 
-extension CPTableViewController: UITableViewDelegate {
+extension CPTableViewDataSourceDelegate: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

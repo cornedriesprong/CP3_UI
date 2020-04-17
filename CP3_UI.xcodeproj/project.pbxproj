@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970BDA9A2449C0CD009EF31B /* CPValueControl.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* SelectionViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		970BDA992449C0CD009EF31B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				970BDA9A2449C0CD009EF31B /* CPValueControl.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		97BD62842448BC320036FBD9 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
 				97F9083F2449995900FC2740 /* CPTableView */,
 				97BD62A72448C1720036FBD9 /* SelectionView */,
+				970BDA992449C0CD009EF31B /* Components */,
 				97BD62A92448C1900036FBD9 /* Resources */,
 				97BD62AA2448C1960036FBD9 /* Extensions */,
 				97BD62922448BC320036FBD9 /* Info.plist */,
@@ -221,6 +232,7 @@
 				97BD62A22448BF440036FBD9 /* AddItemCell.swift in Sources */,
 				97BD629E2448BD030036FBD9 /* ItemCell.swift in Sources */,
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
+				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
 				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
 				97BD629C2448BCBF0036FBD9 /* SelectionViewController.swift in Sources */,
