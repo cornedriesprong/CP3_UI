@@ -12,6 +12,8 @@
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
 		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
+		9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */; };
+		9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */; };
 		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
@@ -33,6 +35,8 @@
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
 		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
+		9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControlTableViewCell.swift; sourceTree = "<group>"; };
+		9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDualValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		979AB0CD24531B150089550E /* CPTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTrackLayer.swift; sourceTree = "<group>"; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				97F908472449AE4400FC2740 /* CPSliderTableViewCell.swift */,
 				9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */,
 				97F9084B2449AF1100FC2740 /* CPSwitchTableViewCell.swift */,
+				9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */,
+				9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 				97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */,
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
+				9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */,
+				9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

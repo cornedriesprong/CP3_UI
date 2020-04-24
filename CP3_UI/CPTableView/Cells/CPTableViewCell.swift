@@ -34,6 +34,8 @@ open class CPTableViewCell: UITableViewCell {
     
     open func configure() {
         
+        backgroundColor = .clear
+        
         textLabel?.font = Font.font()
         textLabel?.textColor = .white
         
