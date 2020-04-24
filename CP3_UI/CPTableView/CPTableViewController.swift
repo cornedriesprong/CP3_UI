@@ -59,6 +59,7 @@ public final class CPTableViewDataSourceDelegate: NSObject {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.indicatorStyle = .white
         
         tableView.register(
             CPTableViewCell.self,

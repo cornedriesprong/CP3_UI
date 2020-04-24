@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970BDA9A2449C0CD009EF31B /* CPValueControl.swift */; };
+		9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9711DBCB245303B200392E5D /* CPThumbLayer.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
+		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
+		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
+		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
 		97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* CPItemCell.swift */; };
@@ -25,7 +29,11 @@
 
 /* Begin PBXFileReference section */
 		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
+		9711DBCB245303B200392E5D /* CPThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPThumbLayer.swift; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
+		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
+		979AB0CD24531B150089550E /* CPTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTrackLayer.swift; sourceTree = "<group>"; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
 		97BD62922448BC320036FBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,8 +65,19 @@
 			isa = PBXGroup;
 			children = (
 				970BDA9A2449C0CD009EF31B /* CPValueControl.swift */,
+				9711DBCA245303A300392E5D /* Sliders */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9711DBCA245303A300392E5D /* Sliders */ = {
+			isa = PBXGroup;
+			children = (
+				9711DBCB245303B200392E5D /* CPThumbLayer.swift */,
+				979AB0CD24531B150089550E /* CPTrackLayer.swift */,
+				9758417D2452035800142A46 /* CPRangeSlider.swift */,
+			);
+			path = Sliders;
 			sourceTree = "<group>";
 		};
 		97BD62842448BC320036FBD9 = {
@@ -142,6 +161,7 @@
 				97F908422449997800FC2740 /* CPTableViewCell.swift */,
 				97F9084524499AE000FC2740 /* CPTextFieldTableViewCell.swift */,
 				97F908472449AE4400FC2740 /* CPSliderTableViewCell.swift */,
+				9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */,
 				97F9084B2449AF1100FC2740 /* CPSwitchTableViewCell.swift */,
 			);
 			path = Cells;
@@ -230,13 +250,17 @@
 			files = (
 				97F908412449997100FC2740 /* CPTableViewController.swift in Sources */,
 				97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */,
+				979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */,
 				97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */,
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
 				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
+				9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */,
 				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
 				97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */,
 				97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */,
+				9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */,
+				975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */,
 				97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */,
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
