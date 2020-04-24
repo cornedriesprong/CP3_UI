@@ -22,8 +22,22 @@ final class CPRangeSlider: UIControl {
         return layer
     }()
     
-    private let lowerThumbLayer = CPThumbLayer()
-    private let upperThumbLayer = CPThumbLayer()
+    private lazy var lowerThumbLayer: CPThumbLayer = {
+        
+        let layer = CPThumbLayer()
+        layer.tintColor = tintColor
+        
+        return layer
+    }()
+    
+    private lazy var upperThumbLayer: CPThumbLayer = {
+        
+        let layer = CPThumbLayer()
+        layer.tintColor = tintColor
+        
+        return layer
+    }()
+    
     private var previousLocation = CGPoint.zero
     
     public var minimumValue: Float = 0
@@ -40,7 +54,9 @@ final class CPRangeSlider: UIControl {
     }
     
     var trackTintColor = Color.darkestGray
-    var trackHighlightTintColor = Color.red
+    var trackHighlightTintColor: UIColor {
+        return tintColor
+    }
     
     // MARK: - Initialization
     
