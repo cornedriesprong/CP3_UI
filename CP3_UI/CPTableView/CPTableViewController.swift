@@ -14,7 +14,6 @@ public protocol CPTableViewItem: CustomStringConvertible {
     var cellHeight: CGFloat { get }
     
     func cell(with color: UIColor) -> CPTableViewCell
-    func didSelect()
 }
 
 public final class CPTableViewDataSourceDelegate: NSObject {
@@ -93,7 +92,7 @@ extension CPTableViewDataSourceDelegate: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let item = Array(items)[indexPath.section].1[indexPath.row]
-        item.didSelect()
+        // TODO: implement?
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

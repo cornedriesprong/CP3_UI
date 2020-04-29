@@ -12,6 +12,13 @@
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
 		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
+		976CC82624599E7000014737 /* CPContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC82524599E7000014737 /* CPContainerViewController.swift */; };
+		976CC8292459A02B00014737 /* CPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8282459A02B00014737 /* CPMenuViewController.swift */; };
+		976CC82C2459A06400014737 /* ShowErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC82B2459A06400014737 /* ShowErrorAlert.swift */; };
+		976CC8452459B1FD00014737 /* CPSequenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8442459B1FD00014737 /* CPSequenceTableViewCell.swift */; };
+		976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8472459B33A00014737 /* GridResizingCell.swift */; };
+		976CC84A2459B34100014737 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8492459B34100014737 /* GridCollectionViewCell.swift */; };
+		976CC8672459B56E00014737 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */; };
 		9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */; };
 		9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */; };
 		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
@@ -35,6 +42,13 @@
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
 		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
+		976CC82524599E7000014737 /* CPContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPContainerViewController.swift; sourceTree = "<group>"; };
+		976CC8282459A02B00014737 /* CPMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPMenuViewController.swift; sourceTree = "<group>"; };
+		976CC82B2459A06400014737 /* ShowErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlert.swift; sourceTree = "<group>"; };
+		976CC8442459B1FD00014737 /* CPSequenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSequenceTableViewCell.swift; sourceTree = "<group>"; };
+		976CC8472459B33A00014737 /* GridResizingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridResizingCell.swift; sourceTree = "<group>"; };
+		976CC8492459B34100014737 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
+		976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDualValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		979AB0CD24531B150089550E /* CPTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTrackLayer.swift; sourceTree = "<group>"; };
@@ -84,6 +98,41 @@
 			path = Sliders;
 			sourceTree = "<group>";
 		};
+		976CC82724599E9000014737 /* CPContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				976CC82524599E7000014737 /* CPContainerViewController.swift */,
+			);
+			path = CPContainerViewController;
+			sourceTree = "<group>";
+		};
+		976CC82A2459A02D00014737 /* CPMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				976CC8282459A02B00014737 /* CPMenuViewController.swift */,
+			);
+			path = CPMenuViewController;
+			sourceTree = "<group>";
+		};
+		976CC82D2459A06700014737 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				976CC82B2459A06400014737 /* ShowErrorAlert.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		976CC8462459B30900014737 /* CPSequenceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				976CC8442459B1FD00014737 /* CPSequenceTableViewCell.swift */,
+				976CC8472459B33A00014737 /* GridResizingCell.swift */,
+				976CC8492459B34100014737 /* GridCollectionViewCell.swift */,
+				976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */,
+			);
+			path = CPSequenceTableViewCell;
+			sourceTree = "<group>";
+		};
 		97BD62842448BC320036FBD9 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
+				976CC8462459B30900014737 /* CPSequenceTableViewCell */,
+				976CC82D2459A06700014737 /* Protocols */,
+				976CC82A2459A02D00014737 /* CPMenuViewController */,
+				976CC82724599E9000014737 /* CPContainerViewController */,
 				97F9083F2449995900FC2740 /* CPTableView */,
 				97BD62A72448C1720036FBD9 /* SelectionView */,
 				970BDA992449C0CD009EF31B /* Components */,
@@ -257,7 +310,9 @@
 				97F908412449997100FC2740 /* CPTableViewController.swift in Sources */,
 				97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */,
 				979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */,
+				976CC8452459B1FD00014737 /* CPSequenceTableViewCell.swift in Sources */,
 				97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */,
+				976CC8672459B56E00014737 /* SliderCollectionViewCell.swift in Sources */,
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
 				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
 				9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */,
@@ -265,12 +320,17 @@
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
 				97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */,
 				97BD62A02448BF1B0036FBD9 /* Color.swift in Sources */,
+				976CC84A2459B34100014737 /* GridCollectionViewCell.swift in Sources */,
 				9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */,
+				976CC8292459A02B00014737 /* CPMenuViewController.swift in Sources */,
+				976CC82C2459A06400014737 /* ShowErrorAlert.swift in Sources */,
 				975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */,
 				97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */,
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
+				976CC82624599E7000014737 /* CPContainerViewController.swift in Sources */,
 				9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */,
+				976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */,
 				9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
