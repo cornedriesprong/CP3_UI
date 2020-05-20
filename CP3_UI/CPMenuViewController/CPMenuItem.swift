@@ -16,6 +16,7 @@ public enum CPMenuItem: CPTableViewItem {
     case contact
     case www
     case rate
+    case otherApps
     
     public var image: UIImage? {
         switch self {
@@ -46,6 +47,12 @@ public enum CPMenuItem: CPTableViewItem {
         case .rate:
             if #available(iOS 13.0, *) {
                 return UIImage(systemName: "star")
+            } else {
+                return nil
+            }
+        case .otherApps:
+            if #available(iOS 13.0, *) {
+                return UIImage(systemName: "app")
             } else {
                 return nil
             }
@@ -88,10 +95,17 @@ public enum CPMenuItem: CPTableViewItem {
             return "Website"
         case .rate:
             return "Rate in app store"
+        case .otherApps:
+            return "Other apps"
         }
     }
     
     public var detailDescription: String? {
-        return nil
+        switch self {
+        case .otherApps:
+            return "Other music apps by this developer"
+        default:
+            return nil
+        }
     }
 }
