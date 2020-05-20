@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    func dark() -> UIColor {
+    public func dark() -> UIColor {
         
         var currentHue: CGFloat = 0.0
         var currentSaturation: CGFloat = 0.0
