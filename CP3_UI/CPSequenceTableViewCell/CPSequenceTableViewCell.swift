@@ -48,7 +48,7 @@ open class CPSequenceTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-    public var cellWidth: CGFloat {
+    open var cellWidth: CGFloat {
         // round to floor or we get inconsistent cell spacings
         return min(floor(((bounds.width - GridResizingCell.width) / 8) - 1), 65)
     }
