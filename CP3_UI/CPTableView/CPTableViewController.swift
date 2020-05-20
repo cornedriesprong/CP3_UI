@@ -8,15 +8,29 @@
 
 import UIKit
 
-public protocol CPTableViewItem: CustomStringConvertible {
-    var image: UIImage? { get }
-    var accessoryType: UITableViewCell.AccessoryType { get }
-    var cellHeight: CGFloat { get }
+public final class CPTableViewController: UIViewController {
     
-    func cell(with color: UIColor) -> CPTableViewCell
-}
-
-public final class CPTableViewDataSourceDelegate: NSObject {
+    // MARK: - Private properties
+    
+    private (set) lazy var tableView: UITableView = {
+        
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.backgroundColor = .clear
+        tableView.indicatorStyle = .white
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.allowsSelection = true
+        
+        tableView.register(
+            CPTableViewCell.self,
+            forCellReuseIdentifier: String(describing: CPTableViewCell.self))
+        
+        return tableView
+    }()
     
     private lazy var blurEffect = UIBlurEffect(style: .dark)
     private lazy var blurView: UIVisualEffectView = {
@@ -27,91 +41,90 @@ public final class CPTableViewDataSourceDelegate: NSObject {
         return view
     }()
     
-    private let tableView: UITableView
-    private var items = [(String, [CPTableViewItem])]()
-    
-    public var color: UIColor = Color.red {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private let items: [CustomStringConvertible]
+    private let selectedIndex: Int?
+    private let callback: ((Int) -> Void)?
     
     // MARK: - Initialization
     
-    public init(tableView: UITableView, items: [(String, [CPTableViewItem])]) {
-        self.tableView = tableView
+    public init(
+        title: String,
+        items: [CustomStringConvertible],
+        selectedIndex: Int? = nil,
+        callback: @escaping (Int) -> Void) {
+        
         self.items = items
+        self.selectedIndex = selectedIndex
+        self.callback = callback
         
-        super.init()
+        super.init(nibName: nil, bundle: nil)
         
-        configureTableView()
+        self.title = title
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Configure
+    // MARK: - Life cycle
     
-    private func configureTableView() {
+    public override func viewDidLoad() {
+        super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.backgroundColor = .clear
-        tableView.indicatorStyle = .white
+        navigationItem.title = title
+        
+        view.addSubview(blurView)
+        blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        blurView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        blurView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         tableView.register(
             CPTableViewCell.self,
-            forCellReuseIdentifier: CPTableViewCell.reuseIdentifier)
+            forCellReuseIdentifier: String(describing: CPTableViewCell.self))
+        
+        tableView.allowsSelection = true
+        tableView.backgroundColor = .clear
+        tableView.indicatorStyle = .white
+        
+        // remove 'back' text on navigation bar back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
 
-extension CPTableViewDataSourceDelegate: UITableViewDataSource {
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
-    }
-    
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(items)[section].0
-    }
+extension CPTableViewController: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Array(items)[section].1.count
+        return items.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let item = Array(items)[indexPath.section].1[indexPath.row]
-        return item.cell(with: color)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: CPTableViewCell.self),
+            for: indexPath)
+        
+        let item = items[indexPath.row]
+        cell.textLabel?.text = item.description.capitalized
+        cell.accessoryType = selectedIndex == indexPath.row ? .checkmark : .none
+        cell.backgroundColor = .clear
+        
+        return cell
     }
 }
 
-extension CPTableViewDataSourceDelegate: UITableViewDelegate {
+extension CPTableViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let item = Array(items)[indexPath.section].1[indexPath.row]
-        // TODO: implement?
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        callback?(indexPath.row)
         
-        let item = Array(items)[indexPath.section].1[indexPath.row]
-        return item.cellHeight
-    }
-    
-    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = Font.fontBold(ofSize: 14)
-        header.textLabel?.textColor = color
-    }
-    
-    public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = Font.font(ofSize: 10)
+        navigationController?.popViewController(animated: true)
     }
 }
-
