@@ -10,9 +10,7 @@ import UIKit
 import CP3Music
 
 public enum CPMenuItem: CPTableViewItem {
-    case scale(Scale)
-    case key(Key)
-    case midiOutputChannel(Int, callback: (Int) -> Void)
+    
     case manual
     case about
     case contact
@@ -20,11 +18,47 @@ public enum CPMenuItem: CPTableViewItem {
     case rate
     
     public var image: UIImage? {
-        return nil
+        switch self {
+        case .manual:
+            if #available(iOSApplicationExtension 13.0, *) {
+                return UIImage(systemName: "questionmark.circle")
+            } else {
+                return nil
+            }
+        case .about:
+            if #available(iOSApplicationExtension 13.0, *) {
+                return UIImage(systemName: "info.circle")
+            } else {
+                return nil
+            }
+        case .contact:
+            if #available(iOSApplicationExtension 13.0, *) {
+                return UIImage(systemName: "envelope")
+            } else {
+                return nil
+            }
+        case .www:
+            if #available(iOSApplicationExtension 13.0, *) {
+                return UIImage(systemName: "globe")
+            } else {
+                return nil
+            }
+        case .rate:
+            if #available(iOS 13.0, *) {
+                return UIImage(systemName: "star")
+            } else {
+                return nil
+            }
+        }
     }
     
     public var accessoryType: UITableViewCell.AccessoryType {
-        return .none
+        switch self {
+        case .about:
+            return .disclosureIndicator
+        default:
+            return .none
+        }
     }
     
     public var cellHeight: CGFloat {
@@ -44,12 +78,6 @@ public enum CPMenuItem: CPTableViewItem {
     
     public var description: String {
         switch self {
-        case .scale:
-            return "Scale"
-        case .key:
-            return "Key"
-        case .midiOutputChannel:
-            return "Output channel"
         case .manual:
             return "User Manual"
         case .about:
@@ -61,5 +89,9 @@ public enum CPMenuItem: CPTableViewItem {
         case .rate:
             return "Rate in app store"
         }
+    }
+    
+    public var detailDescription: String? {
+        return nil
     }
 }

@@ -17,6 +17,19 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     
     // MARK: - Private properties
     
+    public lazy var menuBarButtonItem: UIBarButtonItem = {
+        
+        let bundle = Bundle(for: CPMenuViewController.self)
+        let menuImage = UIImage(named: "menu", in: bundle, compatibleWith: nil)
+        let menuBarButtonItem = UIBarButtonItem(
+            image: menuImage,
+            style: .plain,
+            target: self,
+            action: #selector(menuButtonTapped))
+        
+        return menuBarButtonItem
+    }()
+    
     private lazy var blurEffect = UIBlurEffect(style: .dark)
     private lazy var blurView: UIVisualEffectView = {
         
@@ -54,6 +67,8 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .clear
         
         view.addSubview(blurView)
         blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -98,13 +113,7 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     
     private func configureNavigationBar() {
         
-        let button = UIButton()
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "menu", in: bundle, compatibleWith: nil)
-        button.adjustsImageWhenHighlighted = false
-        button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.leftBarButtonItems = [menuBarButtonItem]
         
         // remove 'back' text on navigation bar back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

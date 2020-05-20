@@ -12,6 +12,7 @@ public protocol CPTableViewItem: CustomStringConvertible {
     var image: UIImage? { get }
     var accessoryType: UITableViewCell.AccessoryType { get }
     var cellHeight: CGFloat { get }
+    var detailDescription: String? { get }
     
     func cell(with color: UIColor) -> CPTableViewCell
 }
