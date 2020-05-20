@@ -22,6 +22,7 @@
 		9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */; };
 		9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */; };
 		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
+		97A7C291246EE542009D0C81 /* CP3Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
 		97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* CPItemCell.swift */; };
@@ -29,6 +30,9 @@
 		97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A12448BF440036FBD9 /* CPAddItemCell.swift */; };
 		97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A32448BFDC0036FBD9 /* Font.swift */; };
 		97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */; };
+		97C68C98246ECD3D004929EB /* CPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C97246ECD3D004929EB /* CPBaseViewController.swift */; };
+		97C68C9A246ED8D2004929EB /* CPTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C99246ED8D2004929EB /* CPTableViewItem.swift */; };
+		97C68C9C246ED8F7004929EB /* CPMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C9B246ED8F7004929EB /* CPMenuItem.swift */; };
 		97F908412449997100FC2740 /* CPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F908402449997100FC2740 /* CPTableViewController.swift */; };
 		97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F908422449997800FC2740 /* CPTableViewCell.swift */; };
 		97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9084524499AE000FC2740 /* CPTextFieldTableViewCell.swift */; };
@@ -52,6 +56,7 @@
 		9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDualValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		979AB0CD24531B150089550E /* CPTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTrackLayer.swift; sourceTree = "<group>"; };
+		97A7C290246EE542009D0C81 /* CP3Music.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CP3Music.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD62912448BC320036FBD9 /* CP3_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CP3_UI.h; sourceTree = "<group>"; };
 		97BD62922448BC320036FBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +66,9 @@
 		97BD62A12448BF440036FBD9 /* CPAddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPAddItemCell.swift; sourceTree = "<group>"; };
 		97BD62A32448BFDC0036FBD9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+dark.swift"; sourceTree = "<group>"; };
+		97C68C97246ECD3D004929EB /* CPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPBaseViewController.swift; sourceTree = "<group>"; };
+		97C68C99246ED8D2004929EB /* CPTableViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewItem.swift; sourceTree = "<group>"; };
+		97C68C9B246ED8F7004929EB /* CPMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPMenuItem.swift; sourceTree = "<group>"; };
 		97F908402449997100FC2740 /* CPTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTableViewController.swift; sourceTree = "<group>"; };
 		97F908422449997800FC2740 /* CPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewCell.swift; sourceTree = "<group>"; };
 		97F9084524499AE000FC2740 /* CPTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A7C291246EE542009D0C81 /* CP3Music.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +118,7 @@
 		976CC82A2459A02D00014737 /* CPMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
+				97C68C9B246ED8F7004929EB /* CPMenuItem.swift */,
 				976CC8282459A02B00014737 /* CPMenuViewController.swift */,
 			);
 			path = CPMenuViewController;
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				976CC82B2459A06400014737 /* ShowErrorAlert.swift */,
+				97C68C99246ED8D2004929EB /* CPTableViewItem.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -133,11 +144,20 @@
 			path = CPSequenceTableViewCell;
 			sourceTree = "<group>";
 		};
+		97A7C28F246EE542009D0C81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97A7C290246EE542009D0C81 /* CP3Music.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		97BD62842448BC320036FBD9 = {
 			isa = PBXGroup;
 			children = (
 				97BD62902448BC320036FBD9 /* CP3_UI */,
 				97BD628F2448BC320036FBD9 /* Products */,
+				97A7C28F246EE542009D0C81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
+				97C68C97246ECD3D004929EB /* CPBaseViewController.swift */,
 				976CC8462459B30900014737 /* CPSequenceTableViewCell */,
 				976CC82D2459A06700014737 /* Protocols */,
 				976CC82A2459A02D00014737 /* CPMenuViewController */,
@@ -329,8 +350,11 @@
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
 				976CC82624599E7000014737 /* CPContainerViewController.swift in Sources */,
+				97C68C98246ECD3D004929EB /* CPBaseViewController.swift in Sources */,
 				9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */,
 				976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */,
+				97C68C9A246ED8D2004929EB /* CPTableViewItem.swift in Sources */,
+				97C68C9C246ED8F7004929EB /* CPMenuItem.swift in Sources */,
 				9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

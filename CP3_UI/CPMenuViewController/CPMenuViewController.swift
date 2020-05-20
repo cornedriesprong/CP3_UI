@@ -51,7 +51,7 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     open var items: [(String, [CPTableViewItem])] {
         return [(String, [CPTableViewItem])]()
     }
-    
+        
     // MARK: - Life cycle
     
     override open func viewDidLoad() {
@@ -101,7 +101,8 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     private func configureNavigationBar() {
         
         let button = UIButton()
-        let image = UIImage(named: "menu")
+        let bundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "menu", in: bundle, compatibleWith: nil)
         button.adjustsImageWhenHighlighted = false
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(menuButtonTapped), for: .touchUpInside)
