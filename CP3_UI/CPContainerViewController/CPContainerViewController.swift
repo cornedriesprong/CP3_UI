@@ -60,6 +60,15 @@ open class CPContainerViewController: UIViewController {
         return view
     }()
     
+    private lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        gestureRecognizer.isEnabled = false
+        gestureRecognizer.cancelsTouchesInView = true
+        
+        return gestureRecognizer
+    }()
+    
     private lazy var panGestureRecognizer: UIPanGestureRecognizer = {
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan))
@@ -97,9 +106,14 @@ open class CPContainerViewController: UIViewController {
         dimView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         dimView.addGestureRecognizer(panGestureRecognizer)
+        dimView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     // MARK: - Selectors
+    
+    @objc private func didTap(_ sender: UITapGestureRecognizer) {
+        collapseMenu()
+    }
     
     @objc private func didPan(_ sender: UIPanGestureRecognizer) {
         
@@ -149,6 +163,7 @@ open class CPContainerViewController: UIViewController {
                 if position == .end {
                     self.menuNavigationController.didMove(toParent: self)
                     self.panGestureRecognizer.isEnabled = true
+                    self.tapGestureRecognizer.isEnabled = true
                 }
             }
             
@@ -170,6 +185,7 @@ open class CPContainerViewController: UIViewController {
                     self.menuNavigationController.view.removeFromSuperview()
                     self.menuNavigationController.removeFromParent()
                     self.panGestureRecognizer.isEnabled = false
+                    self.tapGestureRecognizer.isEnabled = false
                     self.menuNavigationController.popToRootViewController(animated: false)
                 }
             }
