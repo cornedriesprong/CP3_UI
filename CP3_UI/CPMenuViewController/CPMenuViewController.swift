@@ -32,8 +32,6 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.backgroundColor = .clear
-        tableView.showsVerticalScrollIndicator = false
-        
         tableView.dataSource = self
         tableView.delegate = self
         
