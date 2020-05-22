@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970BDA9A2449C0CD009EF31B /* CPValueControl.swift */; };
 		9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9711DBCB245303B200392E5D /* CPThumbLayer.swift */; };
+		9744B54B2477C0DF005D948B /* CPRotaryKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
 		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
 		9711DBCB245303B200392E5D /* CPThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPThumbLayer.swift; sourceTree = "<group>"; };
+		9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRotaryKnob.swift; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
 		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				970BDA9A2449C0CD009EF31B /* CPValueControl.swift */,
+				9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */,
 				9711DBCA245303A300392E5D /* Sliders */,
 			);
 			path = Components;
@@ -350,6 +353,7 @@
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
 				976CC82624599E7000014737 /* CPContainerViewController.swift in Sources */,
+				9744B54B2477C0DF005D948B /* CPRotaryKnob.swift in Sources */,
 				97C68C98246ECD3D004929EB /* CPBaseViewController.swift in Sources */,
 				9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */,
 				976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */,
