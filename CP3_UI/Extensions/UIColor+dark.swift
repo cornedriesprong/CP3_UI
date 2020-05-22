@@ -14,13 +14,30 @@ extension UIColor {
         
         var currentHue: CGFloat = 0.0
         var currentSaturation: CGFloat = 0.0
-        var currentBrigthness: CGFloat = 0.0
+        var currentBrightness: CGFloat = 0.0
         var currentAlpha: CGFloat = 0.0
         
-        if self.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrigthness, alpha: &currentAlpha){
+        if self.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrightness, alpha: &currentAlpha){
             return UIColor(hue: currentHue,
                            saturation: currentSaturation - 0.4,
                            brightness: 0.15,
+                           alpha: currentAlpha)
+        } else {
+            return self
+        }
+    }
+    
+    public func bright() -> UIColor {
+        
+        var currentHue: CGFloat = 0.0
+        var currentSaturation: CGFloat = 0.0
+        var currentBrightness: CGFloat = 0.0
+        var currentAlpha: CGFloat = 0.0
+        
+        if self.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrightness, alpha: &currentAlpha){
+            return UIColor(hue: currentHue,
+                           saturation: currentSaturation,
+                           brightness: 1.0,
                            alpha: currentAlpha)
         } else {
             return self
