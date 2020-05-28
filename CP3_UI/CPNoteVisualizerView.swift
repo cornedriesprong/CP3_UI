@@ -84,7 +84,8 @@ public final class CPNoteVisualizerView: UIView {
         let newPath = UIBezierPath(roundedRect: rect, cornerRadius: 2)
         layer.path = newPath.cgPath
         layer.opacity = self.opacity(for: note.velocity)
-        layer.fillColor = note.pitch.class.color.cgColor
+        let color = Color.allColors[note.pitch.class.rawValue]
+        layer.fillColor = color.cgColor
         activeNotes[note]?.path = newPath.cgPath
     }
     
@@ -102,7 +103,8 @@ public final class CPNoteVisualizerView: UIView {
         let path = UIBezierPath(roundedRect: rect, cornerRadius: 2)
         layer.path = path.cgPath
         layer.opacity = self.opacity(for: note.velocity)
-        layer.fillColor = note.pitch.class.color.cgColor
+        let color = Color.allColors[note.pitch.class.rawValue]
+        layer.fillColor = color.cgColor
         
         return layer
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CP3Music
 
 public enum CPMenuItem: CPTableViewItem {
     

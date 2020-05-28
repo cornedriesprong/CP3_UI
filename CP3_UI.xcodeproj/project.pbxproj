@@ -11,7 +11,6 @@
 		9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9711DBCB245303B200392E5D /* CPThumbLayer.swift */; };
 		9744B54B2477C0DF005D948B /* CPRotaryKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */; };
 		9744B55A2477F30B005D948B /* CPNoteVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B5592477F30B005D948B /* CPNoteVisualizerView.swift */; };
-		9744B5692477FC6B005D948B /* Pitch+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B5682477FC6B005D948B /* Pitch+color.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
 		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
@@ -22,10 +21,11 @@
 		976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8472459B33A00014737 /* GridResizingCell.swift */; };
 		976CC84A2459B34100014737 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8492459B34100014737 /* GridCollectionViewCell.swift */; };
 		976CC8672459B56E00014737 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */; };
+		977CBB67247FC2BD000FD7F6 /* CP3Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; };
+		977CBB68247FC2BD000FD7F6 /* CP3Music.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */; };
 		9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */; };
 		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
-		97A7C291246EE542009D0C81 /* CP3Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
 		97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629D2448BD030036FBD9 /* CPItemCell.swift */; };
@@ -44,12 +44,25 @@
 		97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9084B2449AF1100FC2740 /* CPSwitchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		977CBB69247FC2BD000FD7F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				977CBB68247FC2BD000FD7F6 /* CP3Music.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
 		9711DBCB245303B200392E5D /* CPThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPThumbLayer.swift; sourceTree = "<group>"; };
 		9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRotaryKnob.swift; sourceTree = "<group>"; };
 		9744B5592477F30B005D948B /* CPNoteVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNoteVisualizerView.swift; sourceTree = "<group>"; };
-		9744B5682477FC6B005D948B /* Pitch+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pitch+color.swift"; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
 		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97A7C291246EE542009D0C81 /* CP3Music.framework in Frameworks */,
+				977CBB67247FC2BD000FD7F6 /* CP3Music.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */,
-				9744B5682477FC6B005D948B /* Pitch+color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +293,7 @@
 				97BD628A2448BC320036FBD9 /* Sources */,
 				97BD628B2448BC320036FBD9 /* Frameworks */,
 				97BD628C2448BC320036FBD9 /* Resources */,
+				977CBB69247FC2BD000FD7F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -358,7 +371,6 @@
 				976CC8292459A02B00014737 /* CPMenuViewController.swift in Sources */,
 				976CC82C2459A06400014737 /* ShowErrorAlert.swift in Sources */,
 				975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */,
-				9744B5692477FC6B005D948B /* Pitch+color.swift in Sources */,
 				97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */,
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
