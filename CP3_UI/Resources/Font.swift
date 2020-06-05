@@ -10,6 +10,10 @@ import UIKit
 
 public enum Font {
     
+    public static func header(ofSize size: CGFloat = 15) -> UIFont {
+        return UIFont.systemFont(ofSize: size)
+    }
+    
     public static func font(ofSize size: CGFloat = 15) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
