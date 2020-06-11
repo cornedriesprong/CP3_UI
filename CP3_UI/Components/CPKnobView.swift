@@ -12,6 +12,8 @@ public final class CPKnobView: UIView {
     
     // MARK: - Properties
     
+    private static let headerLabelHeight: CGFloat = 20
+    
     private lazy var stackView: UIStackView = {
         
         let stackView = UIStackView()
@@ -31,7 +33,10 @@ public final class CPKnobView: UIView {
         label.textColor = color
         label.textAlignment = .center
         label.text = text
-        
+        label.backgroundColor = Color.darkGray
+        label.layer.cornerRadius = CPKnobView.headerLabelHeight / 2
+        label.layer.masksToBounds = true
+
         return label
     }()
     
@@ -88,6 +93,9 @@ public final class CPKnobView: UIView {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7).isActive = true
         
         stackView.addArrangedSubview(headerLabel)
+        headerLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: 10).isActive = true
+        headerLabel.heightAnchor.constraint(equalToConstant: CPKnobView.headerLabelHeight).isActive = true
+
         stackView.addArrangedSubview(knob)
         stackView.setCustomSpacing(5, after: knob)
         stackView.addArrangedSubview(valueLabel)
