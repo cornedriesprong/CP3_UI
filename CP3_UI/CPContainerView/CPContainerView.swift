@@ -40,8 +40,6 @@ final class CPContainerView: UIView {
         return stackView
     }()
     
-    private var knobsAndLabels = [CPRotaryKnob: UILabel]()
-    private var slidersAndLabels = [CPRangeSlider: (lower: UILabel, upper: UILabel)]()
     private var configuration: Configuration
     
     // MARK: - Initialization
@@ -85,16 +83,5 @@ final class CPContainerView: UIView {
                 stackView.addArrangedSubview(slider)
             }
         }
-    }
-    
-    // MARK: - Selectors
-    
-    @objc private func knobValueChanged(_ sender: CPRotaryKnob) {
-        knobsAndLabels[sender]?.text = "\(Int(sender.value * 100))%"
-    }
-    
-    @objc private func rangeSliderValueChanged(_ sender: CPRangeSlider) {
-        slidersAndLabels[sender]?.lower.text = "\(Int((sender.lowerValue / 127.0) * 100.0))"
-        slidersAndLabels[sender]?.upper.text = "\(Int((sender.upperValue / 127.0) * 100.0))"
     }
 }
