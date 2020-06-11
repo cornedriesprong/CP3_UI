@@ -49,9 +49,9 @@ public final class CPRangeSlider: UIControl {
     private var previousLocation = CGPoint.zero
     
     public var minimumValue: Float = 0
-    public var maximumValue: Float = 127
+    public var maximumValue: Float = 1.0
     public var lowerValue: Float = 0
-    public var upperValue: Float = 127
+    public var upperValue: Float = 1.0
     
     public override var tintColor: UIColor! {
         didSet {
@@ -146,13 +146,7 @@ public final class CPRangeSlider: UIControl {
             upperValue = boundValue(upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
         }
         
-//        CATransaction.begin()
-//        CATransaction.setDisableActions(true)
-        
         updateLayerFrames()
-        
-//        CATransaction.commit()
-        
         sendActions(for: .valueChanged)
         
         return true

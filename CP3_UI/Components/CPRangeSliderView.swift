@@ -109,12 +109,18 @@ public final class CPRangeSliderView: UIView {
     
     private let text: String
     private let color: UIColor
+    private let callback: (_ lower: Double, _ upper: Double) -> Void
     
     // MARK: - Initialization
     
-    public init(text: String, color: UIColor) {
+    public init(
+        text: String,
+        color: UIColor,
+        callback: @escaping (_ lower: Double, _ upper: Double) -> Void) {
+        
         self.text = text
         self.color = color
+        self.callback = callback
         
         super.init(frame: .zero)
         
@@ -150,7 +156,10 @@ public final class CPRangeSliderView: UIView {
     // MARK: - Selectors
     
     @objc private func rangeSliderValueChanged(_ sender: CPRangeSlider) {
+        
         lowerValueLabel.text = "\(Int((sender.lowerValue / 127.0) * 100.0))"
         upperValueLabel.text = "\(Int((sender.upperValue / 127.0) * 100.0))"
+        
+        callback(Double(sender.lowerValue), Double(sender.upperValue))
     }
 }

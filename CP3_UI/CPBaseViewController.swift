@@ -19,14 +19,31 @@ open class CPBaseViewController: UIViewController {
     public lazy var menuBarButtonItem: UIBarButtonItem = {
        
         let bundle = Bundle(for: CPMenuViewController.self)
-        let menuImage = UIImage(named: "menu", in: bundle, compatibleWith: nil)
-        let menuBarButtonItem = UIBarButtonItem(
-            image: menuImage,
+        let image = UIImage(named: "menu", in: bundle, compatibleWith: nil)
+        let barButtonItem = UIBarButtonItem(
+            image: image,
             style: .plain,
             target: self,
             action: #selector(menuButtonTapped))
         
-        return menuBarButtonItem
+        return barButtonItem
+    }()
+    
+    public lazy var helpBarButtonItem: UIBarButtonItem = {
+        
+        var image: UIImage? = nil
+        if #available(iOSApplicationExtension 13.0, *) {
+            image = UIImage(systemName: "questionmark.circle")
+        }
+        // TODO: add help icon for iOS <13
+        
+        let barButtonItem = UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(helpButtonTapped))
+        
+        return barButtonItem
     }()
     
     public lazy var snapshotsBarButtonItem: UIBarButtonItem = {
@@ -75,6 +92,10 @@ open class CPBaseViewController: UIViewController {
     // MARK: - Selectors
     
     @objc open func menuButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @objc open func helpButtonTapped(_ sender: UIBarButtonItem) {
         
     }
     

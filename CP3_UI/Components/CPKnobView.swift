@@ -56,12 +56,14 @@ public final class CPKnobView: UIView {
     
     private let text: String
     private let color: UIColor
+    private let callback: (Double) -> Void
     
     // MARK: - Initialization
     
-    public init(text: String, color: UIColor) {
+    public init(text: String, color: UIColor, callback: @escaping (Double) -> Void) {
         self.text = text
         self.color = color
+        self.callback = callback
         
         super.init(frame: .zero)
         
@@ -95,5 +97,6 @@ public final class CPKnobView: UIView {
     
     @objc private func knobValueChanged(_ sender: CPRotaryKnob) {
         valueLabel.text = "\(Int(sender.value * 100))%"
+        callback(sender.value)
     }
 }

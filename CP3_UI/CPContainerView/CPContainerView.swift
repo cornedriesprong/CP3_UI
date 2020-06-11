@@ -8,23 +8,26 @@
 
 import UIKit
 
-final class CPContainerView: UIView {
+public final class CPContainerView: UIView {
     
-    struct Configuration {
+    public struct Configuration {
         let axis: NSLayoutConstraint.Axis
         let borderColor: UIColor
         let items: [Item]
         
-        init(axis: NSLayoutConstraint.Axis = .horizontal, borderColor: UIColor, items: [Item]) {
+        public init(axis: NSLayoutConstraint.Axis = .horizontal, borderColor: UIColor, items: [Item]) {
             self.axis = axis
             self.borderColor = borderColor
             self.items = items
         }
     }
     
-    enum Item {
-        case knob(text: String, color: UIColor)
-        case rangeSlider(text: String, color: UIColor)
+    public enum Item {
+        case knob(text: String, color: UIColor, callback: (Double) -> Void)
+        case rangeSlider(
+            text: String,
+            color: UIColor,
+            callback: (_ lower: Double, _ upper: Double) -> Void)
     }
     
     // MARK: - Properties
@@ -44,7 +47,7 @@ final class CPContainerView: UIView {
     
     // MARK: - Initialization
     
-    init(configuration: Configuration) {
+    public init(configuration: Configuration) {
         self.configuration = configuration
         
         super.init(frame: .zero)
@@ -74,12 +77,12 @@ final class CPContainerView: UIView {
         
         for item in configuration.items {
             switch item {
-            case .knob(let text, let color):
-                let knobView = CPKnobView(text: text, color: color)
+            case .knob(let text, let color, let callback):
+                let knobView = CPKnobView(text: text, color: color, callback: callback)
                 stackView.addArrangedSubview(knobView)
                 
-            case .rangeSlider(let text, let color):
-                let slider = CPRangeSliderView(text: text, color: color)
+            case .rangeSlider(let text, let color, let callback):
+                let slider = CPRangeSliderView(text: text, color: color, callback: callback)
                 stackView.addArrangedSubview(slider)
             }
         }
