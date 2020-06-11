@@ -18,6 +18,10 @@ public enum Font {
         return UIFont.systemFont(ofSize: size)
     }
     
+    public static func fontMedium(ofSize size: CGFloat = 15) -> UIFont {
+        return UIFont.systemFont(ofSize: size, weight: .medium)
+    }
+    
     public static func fontBold(ofSize size: CGFloat = 15) -> UIFont {
         return UIFont.systemFont(ofSize: size, weight: .bold)
     }

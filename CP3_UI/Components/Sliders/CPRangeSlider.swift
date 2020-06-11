@@ -8,23 +8,30 @@
 
 import UIKit
 
-final class CPRangeSlider: UIControl {
+public final class CPRangeSlider: UIControl {
     
     // MARK: - Properties
     
-    static let borderWidth: CGFloat = 3
+    static let borderWidth: CGFloat = 4
     
     private lazy var trackLayer: CPTrackLayer = {
     
         let layer = CPTrackLayer()
+        layer.backgroundColor = Color.darkGray.cgColor
+        layer.contentsScale = UIScreen.main.scale
         layer.rangeSlider = self
+        layer.cornerRadius = CPRangeSlider.borderWidth / 2
+        layer.masksToBounds = true
         
         return layer
     }()
     
+    private let trackMaskLayer = CALayer()
+    
     private lazy var lowerThumbLayer: CPThumbLayer = {
         
         let layer = CPThumbLayer()
+        layer.contentsScale = UIScreen.main.scale
         layer.tintColor = tintColor
         
         return layer
@@ -33,6 +40,7 @@ final class CPRangeSlider: UIControl {
     private lazy var upperThumbLayer: CPThumbLayer = {
         
         let layer = CPThumbLayer()
+        layer.contentsScale = UIScreen.main.scale
         layer.tintColor = tintColor
         
         return layer
@@ -45,11 +53,11 @@ final class CPRangeSlider: UIControl {
     public var lowerValue: Float = 0
     public var upperValue: Float = 127
     
-    override var tintColor: UIColor! {
+    public override var tintColor: UIColor! {
         didSet {
             trackLayer.backgroundColor = tintColor.cgColor
-            upperThumbLayer.borderColor = tintColor.cgColor
-            lowerThumbLayer.borderColor = tintColor.cgColor
+            upperThumbLayer.tintColor = tintColor
+            lowerThumbLayer.tintColor = tintColor
         }
     }
     
@@ -63,18 +71,18 @@ final class CPRangeSlider: UIControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.addSublayer(trackLayer)
-        layer.addSublayer(lowerThumbLayer)
-        layer.addSublayer(upperThumbLayer)
+        configure()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        
+        configure()
     }
     
     // MARK: - Layout
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         updateLayerFrames()
@@ -95,22 +103,34 @@ final class CPRangeSlider: UIControl {
         upperThumbLayer.setNeedsDisplay()
     }
     
+    // MARK: - Configure
+    
+    private func configure() {
+        
+        layer.addSublayer(trackLayer)
+        layer.addSublayer(lowerThumbLayer)
+        layer.addSublayer(upperThumbLayer)
+    }
+    
     // MARK: - Tracking
     
-    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
 
         previousLocation = touch.location(in: self)
         
-        if lowerThumbLayer.frame.contains(previousLocation) {
+        let lowerFrame = lowerThumbLayer.frame.insetBy(dx: -20, dy: -20)
+        let upperFrame = upperThumbLayer.frame.insetBy(dx: -20, dy: -20)
+        
+        if lowerFrame.contains(previousLocation) {
             lowerThumbLayer.isHighlighted = true
-        } else if upperThumbLayer.frame.contains(previousLocation) {
+        } else if upperFrame.contains(previousLocation) {
             upperThumbLayer.isHighlighted = true
         }
         
         return lowerThumbLayer.isHighlighted || upperThumbLayer.isHighlighted
     }
     
-    override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: self)
         
         let deltaLocation = location.x - previousLocation.x
@@ -126,19 +146,19 @@ final class CPRangeSlider: UIControl {
             upperValue = boundValue(upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
         }
         
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
+//        CATransaction.begin()
+//        CATransaction.setDisableActions(true)
         
         updateLayerFrames()
         
-        CATransaction.commit()
+//        CATransaction.commit()
         
         sendActions(for: .valueChanged)
         
         return true
     }
     
-    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+    public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         lowerThumbLayer.isHighlighted = false
         upperThumbLayer.isHighlighted = false
     }
@@ -146,11 +166,11 @@ final class CPRangeSlider: UIControl {
     // MARK: - Helpers
     
     func positionForValue(_ value: Float) -> CGFloat {
-        return bounds.width * (CGFloat(value) / CGFloat(maximumValue))
+        return (bounds.width - CPThumbLayer.size.width) * (CGFloat(value) / CGFloat(maximumValue))
     }
     
     private func thumbOriginForValue(_ value: Float) -> CGPoint {
-        let x = positionForValue(value) - CPThumbLayer.size.width / 2.0
+        let x = positionForValue(value)
         return CGPoint(x: x, y: (bounds.height / 2) - (CPThumbLayer.size.height / 2))
     }
     

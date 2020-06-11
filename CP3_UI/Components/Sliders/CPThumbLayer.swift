@@ -8,20 +8,44 @@
 
 import UIKit
 
-final class CPThumbLayer: CALayer {
+public final class CPThumbLayer: CALayer {
     
     // MARK: - Private properties
     
-    static let size = CGSize(width: 28, height: 28)
+    public static let size = CGSize(width: 32, height: 32)
     
-    public var tintColor = Color.red
+    public var tintColor: UIColor = Color.blue {
+        didSet {
+            borderColor = tintColor.cgColor
+        }
+    }
     public var highlightedColor = UIColor.white
     
     public var isHighlighted = false {
         didSet {
-            borderColor = isHighlighted ? highlightedColor.cgColor : tintColor.cgColor
+            guard isHighlighted != oldValue else { return }
+            
+            let anim = CABasicAnimation()
+            anim.keyPath = "borderWidth"
+            anim.fromValue = isHighlighted ? CPRangeSlider.borderWidth : 6
+            anim.toValue = isHighlighted ? 6 : CPRangeSlider.borderWidth
+            anim.duration = 0.2
+            anim.fillMode = .forwards
+            anim.isRemovedOnCompletion = false
+            self.add(anim, forKey: "grow")
         }
     }
+    
+    private lazy var centerLayer: CALayer = {
+        
+        let layer = CALayer()
+        let inset = CPRangeSlider.borderWidth - 1
+        layer.frame = bounds.insetBy(dx: inset, dy: inset)
+        layer.cornerRadius = (bounds.width - CPRangeSlider.borderWidth) / 2
+        layer.backgroundColor = Color.darkGray.cgColor
+        
+        return layer
+    }()
     
     // MARK: - Initialization
     
@@ -45,10 +69,10 @@ final class CPThumbLayer: CALayer {
     
     private func configure() {
         
-        backgroundColor = Color.darkGray.cgColor
-        borderWidth = 3
+        borderWidth = CPRangeSlider.borderWidth
         borderColor = tintColor.cgColor
         cornerRadius = type(of: self).size.width / 2
         frame.size = type(of: self).size
+        addSublayer(centerLayer)
     }
 }

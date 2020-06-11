@@ -8,13 +8,18 @@
 
 import UIKit
 
+@IBDesignable
 public final class CPRotaryKnob: UIControl {
     
     // MARK: - Properties
     
-    static let lineWidth: CGFloat = 3
+    static let lineWidth: CGFloat = 4
     
-    private (set) var value: Double = 0
+    public var value: Double = 0 {
+        didSet {
+            sendActions(for: .valueChanged)
+        }
+    }
     
     private lazy var backgroundLayer: CAShapeLayer = {
         
@@ -53,20 +58,25 @@ public final class CPRotaryKnob: UIControl {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        
+        configure()
     }
     
     // MARK: - Configure
     
     private func configure() {
         
-        tintColor = Color.red
-        
         layer.addSublayer(backgroundLayer)
         layer.addSublayer(valueLayer)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan))
         addGestureRecognizer(panGestureRecognizer)
+        
+        let size: CGFloat = 66
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: size).isActive = true
+        heightAnchor.constraint(equalToConstant: size).isActive = true
     }
     
     // MARK: - Layout
@@ -86,7 +96,7 @@ public final class CPRotaryKnob: UIControl {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        valueLayer.lineWidth = CPRotaryKnob.lineWidth * 2
+        valueLayer.lineWidth = 6
         valueLayer.strokeColor = tintColor.bright().cgColor
     }
     

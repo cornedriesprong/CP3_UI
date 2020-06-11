@@ -10,7 +10,7 @@ import UIKit
 
 public final class Color {
     
-    public static let allColors = [red, orange, yellow, lime, green, cyan, turqoise, blue, azure, purple, lilac, pink]
+    public static let allColors = [red, orange, yellow, lime, green, cyan, turquoise, blue, azure, purple, lilac, pink]
     
     public static var red: UIColor {
         return UIColor(rgb: 0xED5C55)
@@ -36,7 +36,7 @@ public final class Color {
         return UIColor(rgb: 0x31C093)
     }
     
-    public static var turqoise: UIColor {
+    public static var turquoise: UIColor {
         return UIColor(rgb: 0x51C8C8)
     }
     

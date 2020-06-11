@@ -19,17 +19,18 @@ final class CPTrackLayer: CALayer {
         }
         
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
-        ctx.addPath(path.cgPath)
         
+        ctx.addPath(path.cgPath)
         ctx.setFillColor(slider.trackTintColor.cgColor)
         ctx.fillPath()
         
         ctx.setFillColor(slider.trackHighlightTintColor.cgColor)
         let lowerValuePosition = slider.positionForValue(slider.lowerValue)
         let upperValuePosition = slider.positionForValue(slider.upperValue)
-        let rect = CGRect(x: lowerValuePosition, y: 0,
-                          width: upperValuePosition - lowerValuePosition,
+        let rect = CGRect(x: lowerValuePosition + 5, y: 0,
+                          width: (upperValuePosition - lowerValuePosition) + 5,
                           height: bounds.height)
         ctx.fill(rect)
+        ctx.setFillColor(slider.trackTintColor.cgColor)
     }
 }

@@ -10,7 +10,6 @@
 		970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970BDA9A2449C0CD009EF31B /* CPValueControl.swift */; };
 		9711DBCC245303B200392E5D /* CPThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9711DBCB245303B200392E5D /* CPThumbLayer.swift */; };
 		9744B54B2477C0DF005D948B /* CPRotaryKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */; };
-		9744B55A2477F30B005D948B /* CPNoteVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9744B5592477F30B005D948B /* CPNoteVisualizerView.swift */; };
 		97506C5D2448E40800D88309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97506C5C2448E40800D88309 /* Assets.xcassets */; };
 		9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417D2452035800142A46 /* CPRangeSlider.swift */; };
 		975841802452046500142A46 /* CPRangeSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */; };
@@ -21,10 +20,9 @@
 		976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8472459B33A00014737 /* GridResizingCell.swift */; };
 		976CC84A2459B34100014737 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8492459B34100014737 /* GridCollectionViewCell.swift */; };
 		976CC8672459B56E00014737 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */; };
-		977CBB67247FC2BD000FD7F6 /* CP3Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; };
-		977CBB68247FC2BD000FD7F6 /* CP3Music.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97A7C290246EE542009D0C81 /* CP3Music.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9791D878245333C0002C02DB /* CPValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */; };
 		9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */; };
+		9798050E248B8CFE00CDBAAD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9798050D248B8CFE00CDBAAD /* Colors.xcassets */; };
 		979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AB0CD24531B150089550E /* CPTrackLayer.swift */; };
 		97BD62932448BC320036FBD9 /* CP3_UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BD62912448BC320036FBD9 /* CP3_UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BD629C2448BCBF0036FBD9 /* CPSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD629B2448BCBF0036FBD9 /* CPSelectionViewController.swift */; };
@@ -37,6 +35,9 @@
 		97C68C9A246ED8D2004929EB /* CPTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C99246ED8D2004929EB /* CPTableViewItem.swift */; };
 		97C68C9C246ED8F7004929EB /* CPMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C9B246ED8F7004929EB /* CPMenuItem.swift */; };
 		97DC3E6B24791ACA00BCEB14 /* CPAudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */; };
+		97F1397124922778009881EF /* CPRangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1397024922778009881EF /* CPRangeSliderView.swift */; };
+		97F139732492279F009881EF /* CPKnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F139722492279F009881EF /* CPKnobView.swift */; };
+		97F1397524922D43009881EF /* CPContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1397424922D43009881EF /* CPContainerView.swift */; };
 		97F908412449997100FC2740 /* CPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F908402449997100FC2740 /* CPTableViewController.swift */; };
 		97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F908422449997800FC2740 /* CPTableViewCell.swift */; };
 		97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9084524499AE000FC2740 /* CPTextFieldTableViewCell.swift */; };
@@ -44,25 +45,11 @@
 		97F9084C2449AF1100FC2740 /* CPSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9084B2449AF1100FC2740 /* CPSwitchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		977CBB69247FC2BD000FD7F6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				977CBB68247FC2BD000FD7F6 /* CP3Music.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
 		9711DBCB245303B200392E5D /* CPThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPThumbLayer.swift; sourceTree = "<group>"; };
+		972AC4BC2490BC7800AEDD53 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRotaryKnob.swift; sourceTree = "<group>"; };
-		9744B5592477F30B005D948B /* CPNoteVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNoteVisualizerView.swift; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
 		9758417F2452046500142A46 /* CPRangeSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +62,7 @@
 		976CC8662459B56E00014737 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		9791D877245333C0002C02DB /* CPValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControlTableViewCell.swift; sourceTree = "<group>"; };
 		9791D87924533627002C02DB /* CPDualValueControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDualValueControlTableViewCell.swift; sourceTree = "<group>"; };
+		9798050D248B8CFE00CDBAAD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		979AB0CD24531B150089550E /* CPTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTrackLayer.swift; sourceTree = "<group>"; };
 		97A7C290246EE542009D0C81 /* CP3Music.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CP3Music.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD628E2448BC320036FBD9 /* CP3_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CP3_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +78,9 @@
 		97C68C99246ED8D2004929EB /* CPTableViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewItem.swift; sourceTree = "<group>"; };
 		97C68C9B246ED8F7004929EB /* CPMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPMenuItem.swift; sourceTree = "<group>"; };
 		97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPAudioUnitViewController.swift; sourceTree = "<group>"; };
+		97F1397024922778009881EF /* CPRangeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderView.swift; sourceTree = "<group>"; };
+		97F139722492279F009881EF /* CPKnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPKnobView.swift; sourceTree = "<group>"; };
+		97F1397424922D43009881EF /* CPContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPContainerView.swift; sourceTree = "<group>"; };
 		97F908402449997100FC2740 /* CPTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTableViewController.swift; sourceTree = "<group>"; };
 		97F908422449997800FC2740 /* CPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewCell.swift; sourceTree = "<group>"; };
 		97F9084524499AE000FC2740 /* CPTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				977CBB67247FC2BD000FD7F6 /* CP3Music.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +104,8 @@
 			children = (
 				970BDA9A2449C0CD009EF31B /* CPValueControl.swift */,
 				9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */,
+				97F1397024922778009881EF /* CPRangeSliderView.swift */,
+				97F139722492279F009881EF /* CPKnobView.swift */,
 				9711DBCA245303A300392E5D /* Sliders */,
 			);
 			path = Components;
@@ -194,10 +186,11 @@
 		97BD62902448BC320036FBD9 /* CP3_UI */ = {
 			isa = PBXGroup;
 			children = (
+				972AC4BC2490BC7800AEDD53 /* Playground.playground */,
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
 				97C68C97246ECD3D004929EB /* CPBaseViewController.swift */,
 				97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */,
-				9744B5592477F30B005D948B /* CPNoteVisualizerView.swift */,
+				97F1397624922D4B009881EF /* CPContainerView */,
 				976CC8462459B30900014737 /* CPSequenceTableViewCell */,
 				976CC82D2459A06700014737 /* Protocols */,
 				976CC82A2459A02D00014737 /* CPMenuViewController */,
@@ -208,6 +201,7 @@
 				97BD62A92448C1900036FBD9 /* Resources */,
 				97BD62AA2448C1960036FBD9 /* Extensions */,
 				97BD62922448BC320036FBD9 /* Info.plist */,
+				9798050D248B8CFE00CDBAAD /* Colors.xcassets */,
 				97506C5C2448E40800D88309 /* Assets.xcassets */,
 			);
 			path = CP3_UI;
@@ -246,6 +240,14 @@
 				97BD62A52448C08B0036FBD9 /* UIColor+dark.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		97F1397624922D4B009881EF /* CPContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				97F1397424922D43009881EF /* CPContainerView.swift */,
+			);
+			path = CPContainerView;
 			sourceTree = "<group>";
 		};
 		97F9083F2449995900FC2740 /* CPTableView */ = {
@@ -293,7 +295,6 @@
 				97BD628A2448BC320036FBD9 /* Sources */,
 				97BD628B2448BC320036FBD9 /* Frameworks */,
 				97BD628C2448BC320036FBD9 /* Resources */,
-				977CBB69247FC2BD000FD7F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97506C5D2448E40800D88309 /* Assets.xcassets in Resources */,
+				9798050E248B8CFE00CDBAAD /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +358,13 @@
 				97F908412449997100FC2740 /* CPTableViewController.swift in Sources */,
 				97BD62A22448BF440036FBD9 /* CPAddItemCell.swift in Sources */,
 				979AB0CE24531B150089550E /* CPTrackLayer.swift in Sources */,
+				97F139732492279F009881EF /* CPKnobView.swift in Sources */,
 				976CC8452459B1FD00014737 /* CPSequenceTableViewCell.swift in Sources */,
 				97BD629E2448BD030036FBD9 /* CPItemCell.swift in Sources */,
 				976CC8672459B56E00014737 /* SliderCollectionViewCell.swift in Sources */,
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
 				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
+				97F1397524922D43009881EF /* CPContainerView.swift in Sources */,
 				9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */,
 				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
@@ -375,8 +379,8 @@
 				97F908432449997800FC2740 /* CPTableViewCell.swift in Sources */,
 				97BD62A62448C08B0036FBD9 /* UIColor+dark.swift in Sources */,
 				976CC82624599E7000014737 /* CPContainerViewController.swift in Sources */,
+				97F1397124922778009881EF /* CPRangeSliderView.swift in Sources */,
 				9744B54B2477C0DF005D948B /* CPRotaryKnob.swift in Sources */,
-				9744B55A2477F30B005D948B /* CPNoteVisualizerView.swift in Sources */,
 				97C68C98246ECD3D004929EB /* CPBaseViewController.swift in Sources */,
 				9791D87A24533627002C02DB /* CPDualValueControlTableViewCell.swift in Sources */,
 				976CC8482459B33A00014737 /* GridResizingCell.swift in Sources */,
