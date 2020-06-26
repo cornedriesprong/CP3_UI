@@ -88,6 +88,8 @@ public final class CPRangeSliderView: UIView {
         slider.tintColor = color
         slider.minimumValue = Float(range.lowerBound)
         slider.maximumValue = Float(range.upperBound)
+        slider.lowerValue = Float(range.lowerBound)
+        slider.upperValue = Float(range.upperBound)
         slider.heightAnchor.constraint(equalToConstant: CPThumbLayer.size.height).isActive = true
         slider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
         horizontalStackView.addArrangedSubview(slider)
@@ -163,7 +165,9 @@ public final class CPRangeSliderView: UIView {
     @objc private func rangeSliderValueChanged(_ sender: CPRangeSlider) {
         
         let lowerBound = Int(sender.lowerValue)
-        let upperBound = Int(sender.lowerValue)
+        let upperBound = Int(sender.upperValue)
+        
+        guard lowerBound < upperBound else { return }
             
         lowerValueLabel.text = "\(lowerBound)"
         upperValueLabel.text = "\(upperBound)"

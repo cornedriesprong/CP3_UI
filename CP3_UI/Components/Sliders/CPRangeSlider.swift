@@ -125,6 +125,10 @@ public final class CPRangeSlider: UIControl {
             lowerThumbLayer.isHighlighted = true
         } else if upperFrame.contains(previousLocation) {
             upperThumbLayer.isHighlighted = true
+        } else if previousLocation.x > lowerThumbLayer.frame.origin.x &&
+            previousLocation.x < (upperThumbLayer.frame.origin.x + upperThumbLayer.frame.width) {
+            upperThumbLayer.isHighlighted = true
+            lowerThumbLayer.isHighlighted = true
         }
         
         return lowerThumbLayer.isHighlighted || upperThumbLayer.isHighlighted
@@ -136,12 +140,32 @@ public final class CPRangeSlider: UIControl {
         let deltaLocation = location.x - previousLocation.x
         let deltaValue = Float((CGFloat(maximumValue) - CGFloat(minimumValue)) * deltaLocation / bounds.width)
         
+        // swap thumbs depending on swipe direction if they are in the same location
+        if lowerValue == upperValue && location.x > previousLocation.x {
+            // moves right
+            upperThumbLayer.isHighlighted = true
+            lowerThumbLayer.isHighlighted = false
+            
+        } else if lowerValue == upperValue && location.x < previousLocation.x {
+            // moves left
+            lowerThumbLayer.isHighlighted = true
+            upperThumbLayer.isHighlighted = false
+        }
+        
         previousLocation = location
         
-        if lowerThumbLayer.isHighlighted {
+        if lowerThumbLayer.isHighlighted && upperThumbLayer.isHighlighted {
+            // move both thumbs
+            lowerValue += deltaValue
+            lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: upperValue)
+            upperValue += deltaValue
+            upperValue = boundValue(upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
+        } else if lowerThumbLayer.isHighlighted {
+            // lower thumb
             lowerValue += deltaValue
             lowerValue = boundValue(lowerValue, toLowerValue: minimumValue, upperValue: upperValue)
         } else if upperThumbLayer.isHighlighted {
+            // upper thumb
             upperValue += deltaValue
             upperValue = boundValue(upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
         }
