@@ -96,8 +96,15 @@ public final class CPRotaryKnob: UIControl {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        valueLayer.lineWidth = 6
+        valueLayer.lineWidth = CPRotaryKnob.lineWidth * 1.5
         valueLayer.strokeColor = tintColor.bright().cgColor
+    }
+    
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+
+        valueLayer.lineWidth = CPRotaryKnob.lineWidth
+        valueLayer.strokeColor = tintColor.cgColor
     }
     
     // MARK: - Selectors
@@ -120,12 +127,12 @@ public final class CPRotaryKnob: UIControl {
             CATransaction.setDisableActions(false)
             self.value = min(1, max(0, Double(offsetValue / dragDistance)))
             
-        case .ended, .cancelled:
-            valueLayer.lineWidth = CPRotaryKnob.lineWidth
-            valueLayer.strokeColor = tintColor.cgColor
+//        case .ended, .cancelled, .failed:
+            
             
         default:
-            break
+            valueLayer.lineWidth = CPRotaryKnob.lineWidth
+            valueLayer.strokeColor = tintColor.cgColor
         }
     }
     
