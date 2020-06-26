@@ -127,6 +127,7 @@ public final class CPRangeSlider: UIControl {
             upperThumbLayer.isHighlighted = true
         } else if previousLocation.x > lowerThumbLayer.frame.origin.x &&
             previousLocation.x < (upperThumbLayer.frame.origin.x + upperThumbLayer.frame.width) {
+            // touch is in between the thumbs
             upperThumbLayer.isHighlighted = true
             lowerThumbLayer.isHighlighted = true
         }
