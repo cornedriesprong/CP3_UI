@@ -114,6 +114,7 @@ public final class CPRangeSliderView: UIView {
     private let text: String
     private let range: Range<Int>
     private let color: UIColor
+    private let unitConversionClosure: ((Int) -> String)?
     private let callback: (_ range: Range<Int>) -> Void
     
     // MARK: - Initialization
@@ -122,11 +123,13 @@ public final class CPRangeSliderView: UIView {
         text: String,
         range: Range<Int>,
         color: UIColor,
+        unitConversionClosure: ((Int) -> String)? = nil,
         callback: @escaping (_ range: Range<Int>) -> Void) {
         
         self.text = text
         self.range = range
         self.color = color
+        self.unitConversionClosure = unitConversionClosure
         self.callback = callback
         
         super.init(frame: .zero)
@@ -168,9 +171,9 @@ public final class CPRangeSliderView: UIView {
         let upperBound = Int(sender.upperValue)
         
         guard lowerBound < upperBound else { return }
-            
-        lowerValueLabel.text = "\(lowerBound)"
-        upperValueLabel.text = "\(upperBound)"
+        
+        lowerValueLabel.text = unitConversionClosure?(lowerBound) ?? "\(lowerBound)"
+        upperValueLabel.text = unitConversionClosure?(upperBound) ?? "\(upperBound)"
         
         callback(lowerBound..<upperBound)
     }

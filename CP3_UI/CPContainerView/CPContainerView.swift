@@ -28,6 +28,7 @@ public final class CPContainerView: UIView {
             text: String,
             range: Range<Int>,
             color: UIColor,
+            unitConversionClosure: ((Int) -> String)?,
             callback: (Range<Int>) -> Void)
     }
     
@@ -82,8 +83,13 @@ public final class CPContainerView: UIView {
                 let knobView = CPKnobView(text: text, color: color, callback: callback)
                 stackView.addArrangedSubview(knobView)
                 
-            case .rangeSlider(let text, let range, let color, let callback):
-                let slider = CPRangeSliderView(text: text, range: range, color: color, callback: callback)
+            case .rangeSlider(let text, let range, let color, let unitConversionClosureOrNil, let callback):
+                let slider = CPRangeSliderView(
+                    text: text,
+                    range: range,
+                    color: color,
+                    unitConversionClosure: unitConversionClosureOrNil,
+                    callback: callback)
                 stackView.addArrangedSubview(slider)
             }
         }
