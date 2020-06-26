@@ -86,6 +86,8 @@ public final class CPRangeSliderView: UIView {
         let slider = CPRangeSlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.tintColor = color
+        slider.minimumValue = Float(range.lowerBound)
+        slider.maximumValue = Float(range.upperBound)
         slider.heightAnchor.constraint(equalToConstant: CPThumbLayer.size.height).isActive = true
         slider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
         horizontalStackView.addArrangedSubview(slider)
@@ -108,17 +110,20 @@ public final class CPRangeSliderView: UIView {
     }()
     
     private let text: String
+    private let range: Range<Int>
     private let color: UIColor
-    private let callback: (_ lower: Double, _ upper: Double) -> Void
+    private let callback: (_ range: Range<Int>) -> Void
     
     // MARK: - Initialization
     
     public init(
         text: String,
+        range: Range<Int>,
         color: UIColor,
-        callback: @escaping (_ lower: Double, _ upper: Double) -> Void) {
+        callback: @escaping (_ range: Range<Int>) -> Void) {
         
         self.text = text
+        self.range = range
         self.color = color
         self.callback = callback
         
@@ -157,9 +162,12 @@ public final class CPRangeSliderView: UIView {
     
     @objc private func rangeSliderValueChanged(_ sender: CPRangeSlider) {
         
-        lowerValueLabel.text = "\(Int((sender.lowerValue / 127.0) * 100.0))"
-        upperValueLabel.text = "\(Int((sender.upperValue / 127.0) * 100.0))"
+        let lowerBound = Int(sender.lowerValue)
+        let upperBound = Int(sender.lowerValue)
+            
+        lowerValueLabel.text = "\(lowerBound)"
+        upperValueLabel.text = "\(upperBound)"
         
-        callback(Double(sender.lowerValue), Double(sender.upperValue))
+        callback(lowerBound..<upperBound)
     }
 }

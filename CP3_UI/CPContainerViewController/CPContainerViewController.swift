@@ -141,7 +141,6 @@ open class CPContainerViewController: UIViewController {
         }
     }
     
-    
     // MARK: - Helpers
     
     private func propertyAnimator(forAnimationType animationType: PanelState) -> UIViewPropertyAnimator {
