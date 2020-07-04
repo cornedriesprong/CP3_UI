@@ -99,7 +99,7 @@ open class CPBaseViewController: UIViewController {
         
     }
     
-    @objc private func snapshotsButtonTapped(_ sender: UIBarButtonItem)  {
+    @objc open func snapshotsButtonTapped(_ sender: UIBarButtonItem)  {
         
         isSnapshotsMenuVisible = !isSnapshotsMenuVisible
         let height: CGFloat = isSnapshotsMenuVisible ? 44 : 0
