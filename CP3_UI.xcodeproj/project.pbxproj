@@ -48,7 +48,6 @@
 /* Begin PBXFileReference section */
 		970BDA9A2449C0CD009EF31B /* CPValueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPValueControl.swift; sourceTree = "<group>"; };
 		9711DBCB245303B200392E5D /* CPThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPThumbLayer.swift; sourceTree = "<group>"; };
-		972AC4BC2490BC7800AEDD53 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9744B54A2477C0DF005D948B /* CPRotaryKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRotaryKnob.swift; sourceTree = "<group>"; };
 		97506C5C2448E40800D88309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		9758417D2452035800142A46 /* CPRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSlider.swift; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 		97BD62902448BC320036FBD9 /* CP3_UI */ = {
 			isa = PBXGroup;
 			children = (
-				972AC4BC2490BC7800AEDD53 /* Playground.playground */,
 				97BD62912448BC320036FBD9 /* CP3_UI.h */,
 				97C68C97246ECD3D004929EB /* CPBaseViewController.swift */,
 				97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */,
