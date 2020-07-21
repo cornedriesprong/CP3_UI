@@ -32,7 +32,7 @@ open class CPBaseViewController: UIViewController {
     public lazy var helpBarButtonItem: UIBarButtonItem = {
         
         var image: UIImage? = nil
-        if #available(iOSApplicationExtension 13.0, *) {
+        if #available(iOS 13.0, *) {
             image = UIImage(systemName: "questionmark.circle")
         }
         // TODO: add help icon for iOS <13
