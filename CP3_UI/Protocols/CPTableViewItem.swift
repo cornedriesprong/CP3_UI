@@ -9,7 +9,10 @@
 import UIKit
 
 public protocol CPTableViewItem: CustomStringConvertible {
+    
+    @available(iOS 13.0, *)
     var image: UIImage? { get }
+    
     var accessoryType: UITableViewCell.AccessoryType { get }
     var cellHeight: CGFloat { get }
     var detailDescription: String? { get }

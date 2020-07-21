@@ -5,7 +5,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 END
 
 Pod::Spec.new do |s|
-  s.name               = 'CP_UI'
+  s.name               = 'CP3_UI'
   s.version            = '1.0'
   s.summary            = 'Reusable UI components'
   s.homepage           = 'https://github.com/cornedriesprong/CP3_UI'
@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.source             = { :git => 'https://github.com/cornedriesprong/CP3_UI.git', :branch => 'master' }
   s.source_files       = 'CP3_UI/**/*.swift'
   s.ios.deployment_target = '11.0'
-  s.frameworks         = 'Foundation'
+  s.ios.framework      = 'UIKit'
+  s.swift_version      = '5.0'
 end

@@ -20,25 +20,25 @@ public enum CPMenuItem: CPTableViewItem {
     public var image: UIImage? {
         switch self {
         case .manual:
-            if #available(iOSApplicationExtension 13.0, *) {
+            if #available(iOS 13.0, *) {
                 return UIImage(systemName: "questionmark.circle")
             } else {
                 return nil
             }
         case .about:
-            if #available(iOSApplicationExtension 13.0, *) {
+            if #available(iOS 13.0, *) {
                 return UIImage(systemName: "info.circle")
             } else {
                 return nil
             }
         case .contact:
-            if #available(iOSApplicationExtension 13.0, *) {
+            if #available(iOS 13.0, *) {
                 return UIImage(systemName: "envelope")
             } else {
                 return nil
             }
         case .www:
-            if #available(iOSApplicationExtension 13.0, *) {
+            if #available(iOS 13.0, *) {
                 return UIImage(systemName: "globe")
             } else {
                 return nil
