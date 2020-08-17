@@ -59,6 +59,7 @@ public class CPSelectionViewController: UIViewController {
     }()
     
     private var itemCount: Int
+    private var itemNames: [String]
     private let canAddItems: Bool
     
     private var selectedItemIndex = 0 {
@@ -77,8 +78,9 @@ public class CPSelectionViewController: UIViewController {
     
     // MARK: - Initialization
     
-    public init(itemCount: Int, canAddItems: Bool = true) {
+    public init(itemCount: Int, itemNames: [String]? = nil, canAddItems: Bool = true) {
         self.itemCount = itemCount
+        self.itemNames = itemNames ?? (0...itemCount).map { "\($0)" }
         self.canAddItems = canAddItems
         
         super.init(nibName: nil, bundle: nil)
@@ -145,7 +147,7 @@ public class CPSelectionViewController: UIViewController {
             itemCell?.label.text = "\(indexPath.item + 1)"
             itemCell?.configure(
                 index: indexPath.row,
-                title: "\(indexPath.row + 1)",
+                title: itemNames[indexPath.row],
                 color: CPSelectionViewController.color(forSelectedIndex: indexPath.row))
         }
     }
@@ -184,7 +186,7 @@ extension CPSelectionViewController: UICollectionViewDataSource {
             
             cell.configure(
                 index: indexPath.row,
-                title: "\(indexPath.row + 1)",
+                title: itemNames[indexPath.row],
                 color: CPSelectionViewController.color(forSelectedIndex: indexPath.row))
             cell.delegate = self
             
@@ -326,6 +328,7 @@ extension CPSelectionViewController: ItemCellDelegate {
             selectedItemIndex -= 1
         }
         
+        itemCount -= 1
         delegate?.didDeleteItem(withIndex: index)
         
         collectionView.performBatchUpdates({ [weak self] in
@@ -339,6 +342,7 @@ extension CPSelectionViewController: ItemCellDelegate {
     
     func duplicateItem(withIndex index: Int) {
         
+        itemCount += 1
         delegate?.didDuplicateItem(withIndex: index)
         
         collectionView.performBatchUpdates({ [unowned self] in
