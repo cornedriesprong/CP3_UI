@@ -133,9 +133,7 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
         view.endEditing(true)
     }
     
-    @objc private func menuButtonTapped(_ sender: UIBarButtonItem) {
-//        delegate?.collapseMenu()
-    }
+    @objc open func menuButtonTapped(_ sender: UIBarButtonItem) { }
     
     #if AUv3
     @objc private func inputModeChanged(_ sender: UISegmentedControl) {
