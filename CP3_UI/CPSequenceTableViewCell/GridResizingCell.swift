@@ -33,12 +33,12 @@ final public class GridResizingCell: UICollectionReusableView {
 
     private var previousDragOffset = 0
     private let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    
+    public weak var delegate: GridResizingCellDelegate?
 
     // MARK: - Properties
 
     public var draggingThreshold: CGFloat!
-
-    public weak var delegate: GridResizingCellDelegate?
 
     // MARK: - Initialization
 
@@ -59,29 +59,30 @@ final public class GridResizingCell: UICollectionReusableView {
         addSubview(draggerImageView)
         draggerImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         draggerImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
+        
         let panGestureRecognizer = UIPanGestureRecognizer(
             target: self,
             action: #selector(didPan))
-        addGestureRecognizer(panGestureRecognizer)
+        draggerImageView.addGestureRecognizer(panGestureRecognizer)
+        draggerImageView.isUserInteractionEnabled = true
     }
-
+    
     // MARK: - Selectors
-
+    
     @objc private func didPan(_ sender: UIPanGestureRecognizer) {
-
+        
         switch sender.state {
         case .began:
             feedbackGenerator.prepare()
-
+            
         case .changed:
-
+            
             let dragOffset = Int(ceil(sender.translation(in: self).x / draggingThreshold))
-
+            
             guard previousDragOffset != dragOffset else {
                 return
             }
-
+            
             if sender.velocity(in: self).x > 0 {
                 feedbackGenerator.impactOccurred()
                 delegate?.addStep()

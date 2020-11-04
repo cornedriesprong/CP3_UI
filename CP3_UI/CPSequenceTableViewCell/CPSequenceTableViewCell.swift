@@ -52,6 +52,11 @@ open class CPSequenceTableViewCell: UITableViewCell {
         // round to floor or we get inconsistent cell spacings
         return min(floor(((bounds.width - GridResizingCell.width) / 8) - 1), 65)
     }
+    
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    
+    private var previousDragOffset = 0
+    public var draggingThreshold: CGFloat!
         
     // MARK: - Properties
     
@@ -63,7 +68,7 @@ open class CPSequenceTableViewCell: UITableViewCell {
         
         backgroundColor = Color.darkGray
         
-        addSubview(collectionView)
+        contentView.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
@@ -87,5 +92,7 @@ open class CPSequenceTableViewCell: UITableViewCell {
         collectionView.reloadData()
         selectValues()
     }
+    
+    open func addStep() { }
+    open func removeStep() { }
 }
-
