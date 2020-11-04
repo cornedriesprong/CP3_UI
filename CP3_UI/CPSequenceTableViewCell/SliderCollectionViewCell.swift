@@ -10,6 +10,7 @@ import UIKit
 
 public protocol SliderCollectionViewCellDelegate: class {
     func setSliderValue(fromCell cell: SliderCollectionViewCell, to value: CGFloat)
+    func didLongPress(fromCell cell: SliderCollectionViewCell, with value: CGFloat)
 }
 
 public class SliderCollectionViewCell: UICollectionViewCell {
@@ -58,6 +59,13 @@ public class SliderCollectionViewCell: UICollectionViewCell {
 
     private func configure() {
         addSubview(sliderView)
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress))
+        addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    @objc private func didLongPress(_ sender: UILongPressGestureRecognizer) {
+        delegate?.didLongPress(fromCell: self, with: value)
     }
 
     override public func layoutSubviews() {
