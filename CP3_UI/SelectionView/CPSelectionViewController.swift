@@ -15,14 +15,14 @@ public protocol SelectionViewControllerDelegate: class {
     func didDuplicateItem(withIndex: Int)
 }
 
-public class CPSelectionViewController: UIViewController {
+open class CPSelectionViewController: UIViewController {
     
     // MARK: - Properties
     
     static let height: CGFloat = 64
     static let cellWidth: CGFloat = 66
     
-    private lazy var collectionView: UICollectionView = {
+    public lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -62,7 +62,7 @@ public class CPSelectionViewController: UIViewController {
     private var itemNames: [String]
     private let canAddItems: Bool
     
-    private var selectedItemIndex = 0 {
+    public var selectedItemIndex = 0 {
         didSet {
             let indexPath = IndexPath(item: selectedItemIndex, section: 0)
             collectionView.selectItem(
@@ -86,13 +86,13 @@ public class CPSelectionViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Life cycle
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         view.clipsToBounds = true
@@ -111,7 +111,7 @@ public class CPSelectionViewController: UIViewController {
         blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         selectCurrentItem()
