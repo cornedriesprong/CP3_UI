@@ -110,6 +110,12 @@ public final class CPRangeSlider: UIControl {
         layer.addSublayer(trackLayer)
         layer.addSublayer(lowerThumbLayer)
         layer.addSublayer(upperThumbLayer)
+        
+        // this is only here to prevent this from triggering
+        // gesture recognizers in containing views
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan))
+        panGestureRecognizer.cancelsTouchesInView = false
+        addGestureRecognizer(panGestureRecognizer)
     }
     
     // MARK: - Tracking
@@ -180,6 +186,12 @@ public final class CPRangeSlider: UIControl {
     public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         lowerThumbLayer.isHighlighted = false
         upperThumbLayer.isHighlighted = false
+    }
+    
+    // MARK: - Selectors
+    
+    @objc private func didPan(_ sender: UIPanGestureRecognizer) {
+        
     }
     
     // MARK: - Helpers
