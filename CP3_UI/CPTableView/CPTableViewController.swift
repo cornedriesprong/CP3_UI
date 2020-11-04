@@ -96,6 +96,15 @@ public final class CPTableViewController: UIViewController {
         // remove 'back' text on navigation bar back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let index = selectedIndex else { return }
+        
+        let selectedRow = IndexPath(row: index, section: 0)
+        tableView.scrollToRow(at: selectedRow, at: .top, animated: true)
+    }
 }
 
 extension CPTableViewController: UITableViewDataSource {
