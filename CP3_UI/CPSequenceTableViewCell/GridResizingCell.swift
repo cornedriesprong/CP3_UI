@@ -63,8 +63,7 @@ final public class GridResizingCell: UICollectionReusableView {
         let panGestureRecognizer = UIPanGestureRecognizer(
             target: self,
             action: #selector(didPan))
-        draggerImageView.addGestureRecognizer(panGestureRecognizer)
-        draggerImageView.isUserInteractionEnabled = true
+        addGestureRecognizer(panGestureRecognizer)
     }
     
     // MARK: - Selectors
