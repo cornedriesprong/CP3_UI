@@ -60,7 +60,7 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     private func configure() {
 
-        addSubview(label)
+        contentView.addSubview(label)
         label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
