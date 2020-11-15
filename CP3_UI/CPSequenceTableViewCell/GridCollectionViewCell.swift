@@ -23,6 +23,15 @@ public class GridCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var selectionView: UIView = {
+
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = color
+
+        return view
+    }()
+    
     private var color: UIColor!
     private var valueName: String?
     private var stepIndex: Int?
@@ -32,7 +41,7 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     override public var isSelected: Bool {
         didSet {
-            contentView.alpha = isSelected ? 1 : 0.25
+            selectionView.alpha = isSelected ? 1 : 0.25
             label.textColor = isSelected ? Color.darkGray : color
             setLabelState()
         }
@@ -40,7 +49,7 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     override public var isHighlighted: Bool {
         didSet {
-            contentView.backgroundColor = isHighlighted ? .white : color
+            selectionView.backgroundColor = isHighlighted ? .white : color
         }
     }
 
@@ -60,6 +69,12 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     private func configure() {
 
+        contentView.addSubview(selectionView)
+        selectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        selectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        selectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        selectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         contentView.addSubview(label)
         label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -84,9 +99,9 @@ public class GridCollectionViewCell: UICollectionViewCell {
         setLabelState()
 
         backgroundColor = .clear
-        contentView.backgroundColor = color
+        selectionView.backgroundColor = color
 
-        contentView.alpha = isSelected ? 1 : 0.25
+        selectionView.alpha = isSelected ? 1 : 0.25
         label.textColor = isSelected ? Color.darkGray : color
     }
 
