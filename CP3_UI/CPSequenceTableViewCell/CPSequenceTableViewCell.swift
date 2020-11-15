@@ -69,10 +69,10 @@ open class CPSequenceTableViewCell: UITableViewCell {
         backgroundColor = Color.darkGray
         
         contentView.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         NotificationCenter.default.addObserver(
             self,
