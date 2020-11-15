@@ -34,6 +34,7 @@
 		97C68C98246ECD3D004929EB /* CPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C97246ECD3D004929EB /* CPBaseViewController.swift */; };
 		97C68C9A246ED8D2004929EB /* CPTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C99246ED8D2004929EB /* CPTableViewItem.swift */; };
 		97C68C9C246ED8F7004929EB /* CPMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C68C9B246ED8F7004929EB /* CPMenuItem.swift */; };
+		97CF8AEA250277270091058F /* Tickable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF8AE9250277270091058F /* Tickable.swift */; };
 		97DC3E6B24791ACA00BCEB14 /* CPAudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */; };
 		97F1397124922778009881EF /* CPRangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1397024922778009881EF /* CPRangeSliderView.swift */; };
 		97F139732492279F009881EF /* CPKnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F139722492279F009881EF /* CPKnobView.swift */; };
@@ -76,6 +77,7 @@
 		97C68C97246ECD3D004929EB /* CPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPBaseViewController.swift; sourceTree = "<group>"; };
 		97C68C99246ED8D2004929EB /* CPTableViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewItem.swift; sourceTree = "<group>"; };
 		97C68C9B246ED8F7004929EB /* CPMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPMenuItem.swift; sourceTree = "<group>"; };
+		97CF8AE9250277270091058F /* Tickable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tickable.swift; sourceTree = "<group>"; };
 		97DC3E6A24791ACA00BCEB14 /* CPAudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPAudioUnitViewController.swift; sourceTree = "<group>"; };
 		97F1397024922778009881EF /* CPRangeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRangeSliderView.swift; sourceTree = "<group>"; };
 		97F139722492279F009881EF /* CPKnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPKnobView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				976CC82B2459A06400014737 /* ShowErrorAlert.swift */,
 				97C68C99246ED8D2004929EB /* CPTableViewItem.swift */,
+				97CF8AE9250277270091058F /* Tickable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				97F9084624499AE000FC2740 /* CPTextFieldTableViewCell.swift in Sources */,
 				970BDA9D2449C15C009EF31B /* CPValueControl.swift in Sources */,
 				97F1397524922D43009881EF /* CPContainerView.swift in Sources */,
+				97CF8AEA250277270091058F /* Tickable.swift in Sources */,
 				9758417E2452035800142A46 /* CPRangeSlider.swift in Sources */,
 				97BD62A42448BFDC0036FBD9 /* Font.swift in Sources */,
 				97F908482449AE4400FC2740 /* CPSliderTableViewCell.swift in Sources */,
