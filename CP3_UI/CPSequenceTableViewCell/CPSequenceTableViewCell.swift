@@ -8,10 +8,8 @@
 
 import UIKit
 
-public protocol CPSequence { }
-
 public protocol SequenceCollectionViewCellDelegate: class {
-    func sequenceChanged(values: CPSequence, forSequenceIndex index: Int)
+    func sequenceChanged<T>(values: T, forSequenceIndex index: Int)
 }
 
 open class CPSequenceTableViewCell: UITableViewCell {
