@@ -8,6 +8,53 @@
 
 import UIKit
 
+fileprivate final class GridSelectionView: UIView {
+    
+    var color: UIColor {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    var segmentCount = 0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    init(color: UIColor, segmentCount: Int = 0) {
+        self.color = color
+        self.segmentCount = segmentCount
+        
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        for i in 0..<segmentCount {
+            
+            let isLastSegment = i == (segmentCount - 1)
+            let width = segmentCount > 0 ? (bounds.width / CGFloat(segmentCount)) : bounds.width
+            let x = CGFloat(i) * width
+            let rect = CGRect(
+                x: x,
+                y: 0,
+                width: isLastSegment ? width : width - 1,
+                height: bounds.height)
+            let view = UIView(frame: rect)
+            view.backgroundColor = self.color
+            addSubview(view)
+        }
+    }
+}
+
 public class GridCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Private properties
@@ -23,11 +70,10 @@ public class GridCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var selectionView: UIView = {
+    private lazy var selectionView: GridSelectionView = {
 
-        let view = UIView()
+        let view = GridSelectionView(color: .red)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = color
 
         return view
     }()
@@ -41,15 +87,17 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     override public var isSelected: Bool {
         didSet {
-            selectionView.alpha = isSelected ? 1 : 0.25
-            label.textColor = isSelected ? Color.darkGray : color
+            UIView.animate(withDuration: 0.2) {
+                self.selectionView.alpha = self.isSelected ? 1 : 0.25
+                self.label.textColor = self.isSelected ? Color.darkGray : self.color
+            }
             setLabelState()
         }
     }
 
     override public var isHighlighted: Bool {
         didSet {
-            selectionView.backgroundColor = isHighlighted ? .white : color
+            selectionView.color = isHighlighted ? .white : color
         }
     }
 
@@ -88,7 +136,12 @@ public class GridCollectionViewCell: UICollectionViewCell {
         label.text = nil
     }
 
-    public func configure(withColor color: UIColor, valueName: String? = nil, stepIndex: Int? = nil, showValueLabels: Bool = false) {
+    public func configure(
+        withColor color: UIColor,
+        valueName: String? = nil,
+        ratchetCount: Int = 0,
+        stepIndex: Int? = nil,
+        showValueLabels: Bool = false) {
 
         self.color = color
         self.showValueLabels = showValueLabels
@@ -99,7 +152,8 @@ public class GridCollectionViewCell: UICollectionViewCell {
         setLabelState()
 
         backgroundColor = .clear
-        selectionView.backgroundColor = color
+        selectionView.color = color
+        selectionView.segmentCount = ratchetCount + 1
 
         selectionView.alpha = isSelected ? 1 : 0.25
         label.textColor = isSelected ? Color.darkGray : color
