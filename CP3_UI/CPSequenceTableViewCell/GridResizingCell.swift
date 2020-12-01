@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol GridResizingCellDelegate: class {
-    func addStep()
-    func removeStep()
+    func addStep(for index: Int)
+    func removeStep(for index: Int)
 }
 
 final public class GridResizingCell: UICollectionReusableView {
@@ -84,11 +84,11 @@ final public class GridResizingCell: UICollectionReusableView {
             
             if sender.velocity(in: self).x > 0 {
                 feedbackGenerator.impactOccurred()
-                delegate?.addStep()
+                delegate?.addStep(for: tag)
                 previousDragOffset += 1
             } else {
                 feedbackGenerator.impactOccurred()
-                delegate?.removeStep()
+                delegate?.removeStep(for: tag)
                 previousDragOffset -= 1
             }
             

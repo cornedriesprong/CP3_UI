@@ -91,6 +91,6 @@ open class CPSequenceTableViewCell: UITableViewCell {
         selectValues()
     }
     
-    open func addStep() { }
-    open func removeStep() { }
+    open func addStep(for index: Int) { }
+    open func removeStep(for index: Int) { }
 }
