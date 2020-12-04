@@ -10,47 +10,70 @@ import UIKit
 
 fileprivate final class GridSelectionView: UIView {
     
+    // MARK: - Properties
+    
     var color: UIColor {
         didSet {
-            setNeedsLayout()
+            segmentViews.forEach { $0.backgroundColor = color }
         }
     }
     
     var segmentCount = 0 {
         didSet {
-            setNeedsLayout()
+            configure()
         }
     }
+    
+    private var segmentViews = [UIView]()
+    
+    // MARK: - Initialization
     
     init(color: UIColor, segmentCount: Int = 0) {
         self.color = color
         self.segmentCount = segmentCount
         
         super.init(frame: .zero)
+        
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Configure
+    
+    private func configure() {
+        
+        segmentViews.forEach { $0.removeFromSuperview() }
+        segmentViews.removeAll()
+        
+        for _ in 0..<segmentCount {
+            
+            let view = UIView()
+            view.backgroundColor = self.color
+            addSubview(view)
+            segmentViews.append(view)
+        }
+        
+        setNeedsLayout()
+    }
+    
+    // MARK: - Layout
 
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        subviews.forEach { $0.removeFromSuperview() }
-        
-        for i in 0..<segmentCount {
+        for (i, view) in segmentViews.enumerated() {
             
             let isLastSegment = i == (segmentCount - 1)
             let width = segmentCount > 0 ? (bounds.width / CGFloat(segmentCount)) : bounds.width
             let x = CGFloat(i) * width
-            let rect = CGRect(
+            view.frame = CGRect(
                 x: x,
                 y: 0,
                 width: isLastSegment ? width : width - 1,
                 height: bounds.height)
-            let view = UIView(frame: rect)
-            view.backgroundColor = self.color
-            addSubview(view)
         }
     }
 }
@@ -87,10 +110,10 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     override public var isSelected: Bool {
         didSet {
-            UIView.animate(withDuration: 0.2) {
+//            UIView.animate(withDuration: 0.2) {
                 self.selectionView.alpha = self.isSelected ? 1 : 0.25
                 self.label.textColor = self.isSelected ? Color.darkGray : self.color
-            }
+//            }
             setLabelState()
         }
     }
