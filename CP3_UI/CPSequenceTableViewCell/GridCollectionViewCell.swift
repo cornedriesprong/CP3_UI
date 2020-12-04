@@ -110,10 +110,10 @@ public class GridCollectionViewCell: UICollectionViewCell {
 
     override public var isSelected: Bool {
         didSet {
-//            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: 0.2) {
                 self.selectionView.alpha = self.isSelected ? 1 : 0.25
                 self.label.textColor = self.isSelected ? Color.darkGray : self.color
-//            }
+            }
             setLabelState()
         }
     }
