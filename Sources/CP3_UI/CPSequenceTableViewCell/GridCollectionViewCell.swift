@@ -6,6 +6,7 @@
 //  Copyright © 2018 CP3. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 fileprivate final class GridSelectionView: UIView {
@@ -222,3 +223,4 @@ public class GridCollectionViewCell: UICollectionViewCell, Highlightable, Reusab
         }
     }
 }
+#endif

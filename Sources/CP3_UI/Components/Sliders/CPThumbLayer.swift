@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPThumbLayer: CALayer {
@@ -76,3 +77,4 @@ public final class CPThumbLayer: CALayer {
         addSublayer(centerLayer)
     }
 }
+#endif

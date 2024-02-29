@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPTableViewController: UIViewController {
@@ -138,3 +139,4 @@ extension CPTableViewController: UITableViewDelegate {
         navigationController?.popViewController(animated: true)
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPSwitchTableViewCell: CPTableViewCell {
@@ -70,3 +71,4 @@ public final class CPSwitchTableViewCell: CPTableViewCell {
         actionCallBack?(sender.isOn)
     }
 }
+#endif

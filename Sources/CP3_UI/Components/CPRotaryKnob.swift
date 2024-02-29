@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 @IBDesignable
@@ -121,7 +122,7 @@ public final class CPRotaryKnob: UIControl {
             guard let valueOffset = valueOffset else { return }
             let translation = sender.translation(in: self)
             let reversedTranslation = translation.y * -1
-            let offsetValue = (reversedTranslation + valueOffset)
+            let offsetValue = reversedTranslation + valueOffset
             CATransaction.setDisableActions(true)
             valueLayer.strokeEnd = offsetValue / dragDistance
             CATransaction.setDisableActions(false)
@@ -150,3 +151,4 @@ public final class CPRotaryKnob: UIControl {
         return path
     }
 }
+#endif

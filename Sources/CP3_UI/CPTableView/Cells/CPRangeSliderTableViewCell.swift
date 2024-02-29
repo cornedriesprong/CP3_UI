@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public typealias ValueRange<T: Numeric> = (lowerValue: T, upperValue: T)
@@ -197,3 +198,4 @@ public final class CPRangeSliderTableViewCell: CPTableViewCell {
         return "\(Int(round(value)))" + (unitString ?? "")
     }
 }
+#endif

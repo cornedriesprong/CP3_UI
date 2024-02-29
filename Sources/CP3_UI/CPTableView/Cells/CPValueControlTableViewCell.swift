@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPValueControlTableViewCell: CPTableViewCell {
@@ -44,3 +45,4 @@ public final class CPValueControlTableViewCell: CPTableViewCell {
         valueControl.actionCallback = callback
     }
 }
+#endif

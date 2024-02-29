@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPSliderTableViewCell: CPTableViewCell {
@@ -194,3 +195,4 @@ public final class CPSliderTableViewCell: CPTableViewCell {
         return "\(Int(round(slider.value)))" + (unitString ?? "")
     }
 }
+#endif

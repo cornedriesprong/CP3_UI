@@ -6,6 +6,7 @@
 //  Copyright © 2018 CP3. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol GridResizingCellDelegate: AnyObject {
@@ -97,3 +98,4 @@ final public class GridResizingCell: UICollectionReusableView {
         }
     }
 }
+#endif

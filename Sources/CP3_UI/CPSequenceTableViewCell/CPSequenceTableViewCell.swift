@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol SequenceCollectionViewCellDelegate: AnyObject {
@@ -104,3 +105,4 @@ open class CPSequenceTableViewCell: UITableViewCell {
     open func addStep(for index: Int) { }
     open func removeStep(for index: Int) { }
 }
+#endif

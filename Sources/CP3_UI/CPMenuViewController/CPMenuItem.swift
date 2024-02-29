@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public enum CPMenuItem: CPTableViewItem {
@@ -84,3 +85,4 @@ public enum CPMenuItem: CPTableViewItem {
         }
     }
 }
+#endif

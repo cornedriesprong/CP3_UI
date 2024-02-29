@@ -6,6 +6,8 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
+import UIKit
 import CoreAudioKit
 
 open class CPAudioUnitViewController: AUViewController {
@@ -32,3 +34,4 @@ open class CPAudioUnitViewController: AUViewController {
         viewController.didMove(toParent: self)
     }
 }
+#endif

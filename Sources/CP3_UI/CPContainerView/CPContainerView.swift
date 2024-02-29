@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPContainerView: UIView {
@@ -95,3 +96,4 @@ public final class CPContainerView: UIView {
         }
     }
 }
+#endif

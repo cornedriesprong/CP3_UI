@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPRangeSliderView: UIView {
@@ -178,3 +179,4 @@ public final class CPRangeSliderView: UIView {
         callback(lowerBound..<upperBound)
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPAddItemCell: UICollectionViewCell {
@@ -47,3 +48,4 @@ public final class CPAddItemCell: UICollectionViewCell {
         imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 }
+#endif

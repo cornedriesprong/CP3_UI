@@ -6,6 +6,7 @@
 //  Copyright © 2023 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public class IndicatorBarButtonItem: UIBarButtonItem {
@@ -76,3 +77,4 @@ public class IndicatorBarButtonItem: UIBarButtonItem {
         callback()
     }
 }
+#endif

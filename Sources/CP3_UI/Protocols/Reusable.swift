@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 public protocol Reusable {
@@ -19,3 +21,4 @@ extension Reusable where Self: UICollectionViewCell {
         return String(describing: (type(of: Self.self)))
     }
 }
+#endif

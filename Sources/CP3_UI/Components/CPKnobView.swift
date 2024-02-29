@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public final class CPKnobView: UIView {
@@ -108,3 +109,4 @@ public final class CPKnobView: UIView {
         callback(sender.value)
     }
 }
+#endif

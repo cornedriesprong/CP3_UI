@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol SelectionViewControllerDelegate: AnyObject {
@@ -372,3 +373,4 @@ extension CPSelectionViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
+#endif

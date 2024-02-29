@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 open class CPTableViewCell: UITableViewCell {
@@ -59,3 +60,4 @@ open class CPTableViewCell: UITableViewCell {
         imageView?.layer.cornerRadius = imageView!.bounds.width / 2
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2019 CP3. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol SliderCollectionViewCellDelegate: AnyObject {
@@ -146,3 +147,4 @@ extension SliderCollectionViewCell: UIGestureRecognizerDelegate {
         return true
     }
 }
+#endif

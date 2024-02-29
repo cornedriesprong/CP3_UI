@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol ShowErrorAlert {
@@ -76,3 +77,4 @@ extension ShowErrorAlert where Self: UIViewController {
         present(alert, animated: true)
     }
 }
+#endif

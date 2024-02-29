@@ -6,7 +6,6 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
-import UIKit
 import SwiftUI
 
 public enum ColorTheme: String, CaseIterable {
@@ -22,6 +21,7 @@ public enum ColorTheme: String, CaseIterable {
     case purple
     case lilac
     case pink
+    case white
     
     init(_ name: String) {
         switch name {
@@ -49,15 +49,19 @@ public enum ColorTheme: String, CaseIterable {
             self = .lilac
         case "pink":
             self = .pink
+        case "gray":
+            self = .white
         default:
             fatalError("unrecognized color!")
         }
     }
     
+    @available(macOS 10.15, *)
     public var color: Color {
         return Color(uiColor)
     }
     
+#if canImport(UIKit)
     public var uiColor: UIColor {
         switch self {
         case .red:
@@ -84,6 +88,8 @@ public enum ColorTheme: String, CaseIterable {
             return UIColor(rgb: 0xC773C0)
         case .pink:
             return UIColor(rgb: 0xE25B9D)
+        case .white:
+            return UIColor(rgb: 0xE9E9E9)
         }
     }
     
@@ -98,4 +104,50 @@ public enum ColorTheme: String, CaseIterable {
     public static var darkestGray: UIColor {
         return UIColor(red: 0.0745, green: 0.0745, blue: 0.0745, alpha: 1.000)
     }
+    
+#elseif canImport(AppKit)
+    public var uiColor: NSColor {
+        switch self {
+        case .red:
+            return NSColor(rgb: 0xED5C55)
+        case .orange:
+            return NSColor(rgb: 0xE4924D)
+        case .yellow:
+            return NSColor(rgb: 0xFFC836)
+        case .lime:
+            return NSColor(rgb: 0xACD44F)
+        case .green:
+            return NSColor(rgb: 0x41B153)
+        case .cyan:
+            return NSColor(rgb: 0x31C093)
+        case .turquoise:
+            return NSColor(rgb: 0x51C8C8)
+        case .blue:
+            return NSColor(rgb: 0x2E9CC6)
+        case .azure:
+            return NSColor(rgb: 0x6A91D4)
+        case .purple:
+            return NSColor(rgb: 0xA67CD8)
+        case .lilac:
+            return NSColor(rgb: 0xC773C0)
+        case .pink:
+            return NSColor(rgb: 0xE25B9D)
+        case .white:
+            return NSColor(rgb: 0xE9E9E9)
+        }
+    }
+    
+    public static var darkGray: NSColor {
+        return NSColor(red: 0.149, green: 0.149, blue: 0.149, alpha: 1.000)
+    }
+    
+    public static var darkerGrey: NSColor {
+        return NSColor(red: 30, green: 30, blue: 30)
+    }
+    
+    public static var darkestGray: NSColor {
+        return NSColor(red: 0.0745, green: 0.0745, blue: 0.0745, alpha: 1.000)
+    }
+    
+#endif
 }

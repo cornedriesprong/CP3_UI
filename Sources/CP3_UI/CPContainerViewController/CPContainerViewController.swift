@@ -6,6 +6,7 @@
 //  Copyright © 2020 cp3.io. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public enum PanelState {
@@ -218,4 +219,4 @@ open class CPContainerViewController: UIViewController {
         animator?.startAnimation()
     }
 }
-
+#endif
