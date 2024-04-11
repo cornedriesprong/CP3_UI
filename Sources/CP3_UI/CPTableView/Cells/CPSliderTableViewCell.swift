@@ -163,12 +163,11 @@ public final class CPSliderTableViewCell: CPTableViewCell {
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        let bundle = Bundle(for: CPSliderTableViewCell.self)
         
         let dimension: CGFloat = 33
         let decreaseButton = UIButton()
         decreaseButton.translatesAutoresizingMaskIntoConstraints = false
-        let minusImage = UIImage(named: "minus_slider", in: bundle, compatibleWith: nil)
+        let minusImage = UIImage(named: "minus_slider", in: Bundle.module, compatibleWith: nil)
         decreaseButton.setImage(minusImage, for: .normal)
         decreaseButton.addTarget(self, action: #selector(decreaseButtonTapped), for: .touchUpInside)
         stackView.addArrangedSubview(decreaseButton)
@@ -179,7 +178,7 @@ public final class CPSliderTableViewCell: CPTableViewCell {
         
         let increaseButton = UIButton()
         increaseButton.translatesAutoresizingMaskIntoConstraints = false
-        let plusImage = UIImage(named: "plus_slider", in: bundle, compatibleWith: nil)
+        let plusImage = UIImage(named: "plus_slider", in: Bundle.module, compatibleWith: nil)
         increaseButton.setImage(plusImage, for: .normal)
         increaseButton.addTarget(self, action: #selector(increaseButtonTapped), for: .touchUpInside)
         stackView.addArrangedSubview(increaseButton)

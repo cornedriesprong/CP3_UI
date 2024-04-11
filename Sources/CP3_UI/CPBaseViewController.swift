@@ -19,8 +19,7 @@ open class CPBaseViewController: UIViewController {
     
     public lazy var menuBarButtonItem: UIBarButtonItem = {
        
-        let bundle = Bundle(for: CPMenuViewController.self)
-        let image = UIImage(named: "menu", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "menu", in: Bundle.module, compatibleWith: nil)
         let barButtonItem = UIBarButtonItem(
             image: image,
             style: .plain,

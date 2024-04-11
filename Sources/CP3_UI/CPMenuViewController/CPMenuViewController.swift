@@ -22,8 +22,7 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     
     public lazy var menuBarButtonItem: UIBarButtonItem = {
         
-        let bundle = Bundle(for: CPMenuViewController.self)
-        let menuImage = UIImage(named: "menu", in: bundle, compatibleWith: nil)
+        let menuImage = UIImage(named: "menu", in: Bundle.module, compatibleWith: nil)
         let menuBarButtonItem = UIBarButtonItem(
             image: menuImage,
             style: .plain,

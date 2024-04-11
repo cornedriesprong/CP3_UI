@@ -17,8 +17,7 @@ public final class CPAddItemCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "plus", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "plus", in: Bundle.module, compatibleWith: nil)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

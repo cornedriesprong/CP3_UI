@@ -23,9 +23,7 @@ final public class GridResizingCell: UICollectionReusableView {
     // MARK: - Private properties
 
     private lazy var dragIndicatorImageView: UIImageView = {
-
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "dragger", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "dragger", in: Bundle.module, compatibleWith: nil)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
