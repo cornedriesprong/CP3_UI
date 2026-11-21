@@ -28,8 +28,8 @@ public class SliderCollectionViewCell: UICollectionViewCell, Highlightable {
     
     public var isActive: Bool = false {
         didSet {
-            sliderView.backgroundColor = isActive ? UIColor.white : self.color
-            backgroundColor = isActive ? UIColor.white.withAlphaComponent(0.25) : self.color.withAlphaComponent(0.25)
+            guard isActive != oldValue else { return }
+            updateColors()
         }
     }
     
@@ -41,10 +41,15 @@ public class SliderCollectionViewCell: UICollectionViewCell, Highlightable {
     
     public var color: UIColor! {
         didSet {
-            backgroundColor = color.withAlphaComponent(0.25)
-            sliderView.backgroundColor = color
+            guard color != oldValue else { return }
+            dimmedColor = color?.withAlphaComponent(0.25)
+            // a reused cell may still be active
+            updateColors()
         }
     }
+    
+    private var dimmedColor: UIColor?
+    private static let dimmedWhite = UIColor.white.withAlphaComponent(0.25)
     
     public var isBipolar: Bool = false
     
@@ -124,6 +129,12 @@ public class SliderCollectionViewCell: UICollectionViewCell, Highlightable {
     }
     
     // MARK: - Helpers
+    
+    private func updateColors() {
+        guard let color = color else { return }
+        sliderView.backgroundColor = isActive ? .white : color
+        backgroundColor = isActive ? Self.dimmedWhite : dimmedColor
+    }
     
     private func setValue(forYPosition yPosition: CGFloat) {
         

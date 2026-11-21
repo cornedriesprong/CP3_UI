@@ -15,6 +15,9 @@ fileprivate final class GridSelectionView: UIView {
     
     var color: UIColor {
         didSet {
+            // setting a background color is relatively expensive (trait
+            // resolution, layer updates): skip it when nothing changes
+            guard color != oldValue else { return }
             segmentViews.forEach { $0.backgroundColor = color }
         }
     }
@@ -121,21 +124,21 @@ public class GridCollectionViewCell: UICollectionViewCell, Highlightable, Reusab
     
     public var isActive: Bool = false {
         didSet {
-            if isActive {
-                selectionView.color = .white
-            } else {
-                let alpha = ((0.75 / 127.0) * Double(velocityValue)) + 0.25
-                selectionView.color = color.withAlphaComponent(alpha)
-            }
+            guard isActive != oldValue else { return }
+            updateSelectionColor()
         }
     }
     
     public var velocityValue: Int = 127 {
         didSet {
-            let alpha = ((0.75 / 127.0) * Double(velocityValue)) + 0.25
-            selectionView.color = color.withAlphaComponent(alpha)
+            guard velocityValue != oldValue else { return }
+            inactiveColor = nil
+            updateSelectionColor()
         }
     }
+    
+    // the color for inactive cells, derived from color and velocity
+    private var inactiveColor: UIColor?
     
     public var ratchetCount: Int = 0 {
         didSet {
@@ -195,19 +198,36 @@ public class GridCollectionViewCell: UICollectionViewCell, Highlightable, Reusab
         stepIndex: Int? = nil,
         showValueLabels: Bool = false) {
 
+        if color != self.color {
+            inactiveColor = nil
+        }
         self.color = color
         self.showValueLabels = showValueLabels
 
         self.valueName = valueName
         self.stepIndex = stepIndex
 
-        selectionView.color = color
+        // a reused cell may still be active
+        updateSelectionColor()
         self.ratchetCount = ratchetCount
         
         setLabelState()
 
         selectionView.alpha = isSelected ? 1 : 0.25
         label.textColor = isSelected ? ColorTheme.darkGray : color
+    }
+
+    private func updateSelectionColor() {
+        guard let color = color else { return }
+        if isActive {
+            selectionView.color = .white
+            return
+        }
+        if inactiveColor == nil {
+            let alpha = ((0.75 / 127.0) * Double(velocityValue)) + 0.25
+            inactiveColor = color.withAlphaComponent(alpha)
+        }
+        selectionView.color = inactiveColor!
     }
 
     private func setLabelState() {
