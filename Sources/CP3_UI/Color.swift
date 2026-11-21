@@ -21,7 +21,7 @@ public enum ColorTheme: String, CaseIterable {
     case purple
     case lilac
     case pink
-    case white
+//    case white
     
     init(_ name: String) {
         switch name {
@@ -49,8 +49,8 @@ public enum ColorTheme: String, CaseIterable {
             self = .lilac
         case "pink":
             self = .pink
-        case "gray":
-            self = .white
+//        case "gray":
+//            self = .white
         default:
             fatalError("unrecognized color!")
         }
@@ -88,8 +88,8 @@ public enum ColorTheme: String, CaseIterable {
             return UIColor(rgb: 0xC773C0)
         case .pink:
             return UIColor(rgb: 0xE25B9D)
-        case .white:
-            return UIColor(rgb: 0xE9E9E9)
+//        case .white:
+//            return UIColor(rgb: 0xE9E9E9)
         }
     }
     
@@ -132,8 +132,8 @@ public enum ColorTheme: String, CaseIterable {
             return NSColor(rgb: 0xC773C0)
         case .pink:
             return NSColor(rgb: 0xE25B9D)
-        case .white:
-            return NSColor(rgb: 0xE9E9E9)
+//        case .white:
+//            return NSColor(rgb: 0xE9E9E9)
         }
     }
     

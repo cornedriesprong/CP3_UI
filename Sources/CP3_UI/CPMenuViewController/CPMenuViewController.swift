@@ -164,12 +164,24 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     }
     
     public func openUrlInHost(url: URL?) {
-        let selector = sel_registerName("openURL:")
+        guard let url = url else { return }
+
+        // UIApplication's openURL: is deprecated and always returns NO since iOS 18, so call
+        // open(_:options:completionHandler:) instead. It's unavailable to app extensions at
+        // compile time, so find the application in the responder chain and call it dynamically
+        typealias OpenURLFunction = @convention(c) (
+            AnyObject, Selector, NSURL, NSDictionary, (@convention(block) (Bool) -> Void)?) -> Void
+
+        let selector = NSSelectorFromString("openURL:options:completionHandler:")
         var responder = self as UIResponder?
-        while let r = responder, !r.responds(to: selector) {
+        while let r = responder {
+            if r is UIApplication, r.responds(to: selector) {
+                let openURL = unsafeBitCast(r.method(for: selector), to: OpenURLFunction.self)
+                openURL(r, selector, url as NSURL, NSDictionary(), nil)
+                return
+            }
             responder = r.next
         }
-        _ = responder?.perform(selector, with: url)
     }
     
     open func didSelectItem(_ item: CPTableViewItem) {}
