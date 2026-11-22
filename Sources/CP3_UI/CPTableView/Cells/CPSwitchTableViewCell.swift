@@ -53,8 +53,17 @@ public final class CPSwitchTableViewCell: CPTableViewCell {
         super.configure()
         
         contentView.addSubview(self.switch)
-        self.switch.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        self.switch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         self.switch.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
+
+        // Give the content view a height when the table uses self-sizing rows.
+        // Not required, so tables with a fixed row height don't conflict.
+        let margins = contentView.layoutMarginsGuide
+        let topConstraint = self.switch.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor)
+        let bottomConstraint = margins.bottomAnchor.constraint(greaterThanOrEqualTo: self.switch.bottomAnchor)
+        topConstraint.priority = .defaultHigh
+        bottomConstraint.priority = .defaultHigh
+        NSLayoutConstraint.activate([topConstraint, bottomConstraint])
         
         setNeedsDisplay()
     }

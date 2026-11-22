@@ -57,8 +57,13 @@ open class CPBaseViewController: UIViewController {
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
         
         let dimension: CGFloat = 33
-        button.widthAnchor.constraint(equalToConstant: dimension).isActive = true
-        button.heightAnchor.constraint(equalToConstant: dimension).isActive = true
+        // Not required: the navigation bar sizes its item wrapper itself and pins
+        // the custom view to it, so a required size would conflict with that.
+        let widthConstraint = button.widthAnchor.constraint(equalToConstant: dimension)
+        let heightConstraint = button.heightAnchor.constraint(equalToConstant: dimension)
+        widthConstraint.priority = .defaultHigh
+        heightConstraint.priority = .defaultHigh
+        NSLayoutConstraint.activate([widthConstraint, heightConstraint])
         
         let barButtonItem = UIBarButtonItem(customView: button)
         return barButtonItem
