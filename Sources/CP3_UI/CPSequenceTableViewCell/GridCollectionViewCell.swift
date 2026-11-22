@@ -225,7 +225,7 @@ public class GridCollectionViewCell: UICollectionViewCell, Highlightable, Reusab
         }
         if inactiveColor == nil {
             let alpha = ((0.75 / 127.0) * Double(velocityValue)) + 0.25
-            inactiveColor = color.withAlphaComponent(alpha)
+            inactiveColor = color.withAlphaComponent(color.cgColor.alpha * alpha)
         }
         selectionView.color = inactiveColor!
     }

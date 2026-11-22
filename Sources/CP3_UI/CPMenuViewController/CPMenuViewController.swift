@@ -17,12 +17,16 @@ open class CPMenuViewController: UIViewController, ShowErrorAlert {
     // MARK: - Static properties
     
     public static let width: CGFloat = 280
+
+    public static var menuImage: UIImage? {
+        return UIImage(named: "menu", in: Bundle.module, compatibleWith: nil)
+    }
     
     // MARK: - Private properties
     
     public lazy var menuBarButtonItem: UIBarButtonItem = {
         
-        let menuImage = UIImage(named: "menu", in: Bundle.module, compatibleWith: nil)
+        let menuImage = CPMenuViewController.menuImage
         let menuBarButtonItem = UIBarButtonItem(
             image: menuImage,
             style: .plain,
@@ -364,8 +368,7 @@ extension CPMenuViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = Font.fontBold(ofSize: 14)
-        header.textLabel?.textColor = ColorTheme.red.uiColor
+        header.applyCPHeaderStyle(in: tableView, section: section)
     }
     
     public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
